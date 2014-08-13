@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import com.android.volley.VolleyLog;
 import com.azuqua.androidAPI.Azuqua;
 
 import org.json.JSONArray;
@@ -32,8 +33,8 @@ public class TestActivity extends Activity {
         Azuqua.initialize(this);
 
         //Begin Tests
-        signInTest();
-        getOrgsTest();
+        //signInTest();
+        //getOrgsTest();
         getFlosTest();
     }
 
@@ -56,13 +57,13 @@ public class TestActivity extends Activity {
         }
     }
 
-    //getOrgsTest
+    //getFlosTest
     public void getFlosTest(){
         infoTextView.setText(infoTextView.getText() + "\nGetFlos Test");
         try {
             Azuqua.getFlos(AccessKey, AccessSecret, createGetFlosListener(), createGetFlosErrorListener());
-        } catch (JSONException e){
-            Log.i(TAG, "JSON Exception, I'm DEAD");
+        } catch (Exception e){
+            Log.i(TAG, "Exception, I'm DEAD: \n" + e.getMessage());
             finish();
         }
     }
@@ -133,6 +134,12 @@ public class TestActivity extends Activity {
             public void onErrorResponse(VolleyError error) {
                 infoTextView.setText(infoTextView.getText() + "\nGetFlos Response: Error");
                 Log.i(TAG, "getFlos Response: Error");
+                Log.i(TAG, error.networkResponse.headers.toString());
+                Log.i(TAG, "local message: " + error.getLocalizedMessage());
+                Log.i(TAG, "message: " + error.getMessage());
+                Log.i(TAG, "data: " + error.networkResponse.data.toString());
+
+
             }
         };
         return errorListener;

@@ -5,7 +5,11 @@ import android.util.Log;
 
 import java.nio.charset.Charset;
 import java.security.InvalidKeyException;
+import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -13,15 +17,26 @@ import javax.crypto.spec.SecretKeySpec;
 public final class RequestData{
     private static final String TAG = "RequestData";
     private final String accessKey;
-    private final Map<String, String> data;
+    private final Map<String, String> params;
+    private String method;
+    private String path;
     private String hash;
     protected final static char[] hexArray = "0123456789abcdef".toCharArray(); //Faster hex convert?
 
-    public RequestData(String accessKey, String accessSecret, Map params){
+    public RequestData(String accessKey, String accessSecret, Map params, String httpMethod, String path){
         this.accessKey = accessKey;
-        this.data = params;
+        this.params = params;
+        this.method = httpMethod.toLowerCase();
+        this.path = path;
+
+        TimeZone tz = TimeZone.getTimeZone("UTC");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        df.setTimeZone(tz);
+        String nowAsISO = df.format(new Date());
+
+        String data = method + ":" + path + nowAsISO;
         try {
-            this.hash = encode(accessSecret, params.toString());
+            this.hash = encode(accessSecret, data);
         } catch (Exception e){
             Log.d(TAG, e.getMessage());
         }
