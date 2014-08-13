@@ -15,7 +15,7 @@ public final class RequestData{
     private final String accessKey;
     private final Map<String, String> data;
     private String hash;
-    protected final static char[] hexArray = "0123456789abcdef".toCharArray(); //Faster hex conver?
+    protected final static char[] hexArray = "0123456789abcdef".toCharArray(); //Faster hex convert?
 
     public RequestData(String accessKey, String accessSecret, Map params){
         this.accessKey = accessKey;
