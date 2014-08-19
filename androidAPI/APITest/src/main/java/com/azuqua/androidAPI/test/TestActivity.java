@@ -13,11 +13,16 @@ import com.azuqua.androidAPI.Azuqua;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.security.NoSuchAlgorithmException;
 
 public class TestActivity extends Activity {
     private static  final String TAG = "TestActivity";
     private static  final String AccessKey = "cf589168e17832fa0d49c30051baa50dfeb0230f";
     private static  final String AccessSecret = "445c124fe15dcbd5e8a5dfa7fe108db859b7d1788c61e7525d4f01f0bbbc708e";
+    private static  final String PASSWORD = "kevin@azuqua.com";
+    private static  final String EMAIL = "kevin@azuqua.com";
 
     //UI reference
     TextView infoTextView;
@@ -34,8 +39,8 @@ public class TestActivity extends Activity {
 
         //Begin Tests
         //signInTest();
-        //getOrgsTest();
-        getFlosTest();
+        getOrgsTest();
+        //getFlosTest();
     }
 
     // ***API Tests***
@@ -50,9 +55,9 @@ public class TestActivity extends Activity {
     public void getOrgsTest(){
         infoTextView.setText(infoTextView.getText() + "\nGetOrgs Test");
         try {
-            Azuqua.getOrgs("Token", createGetOrgsListener(), createGetOrgsErrorListener());
-        } catch (JSONException e){
-            Log.i(TAG, "JSON Exception, I'm DEAD");
+            Azuqua.getOrgs(PASSWORD, EMAIL, createGetOrgsListener(), createGetOrgsErrorListener());
+        } catch (NoSuchAlgorithmException e){
+            Log.i(TAG, "NoSuchAlgorithmException, I'm DEAD");
             finish();
         }
     }
@@ -94,10 +99,10 @@ public class TestActivity extends Activity {
 
 
     //GetOrgs listeners
-    public Response.Listener<JSONArray> createGetOrgsListener(){
-        Response.Listener listener = new Response.Listener<JSONArray>() {
+    public Response.Listener<JSONObject> createGetOrgsListener(){
+        Response.Listener listener = new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(JSONArray response) {
+            public void onResponse(JSONObject response) {
                 infoTextView.setText(infoTextView.getText() + "\nGetOrgs Response: " + response.toString());
                 Log.i(TAG, "getOrgs Response:" + response.toString());
             }

@@ -86,5 +86,5 @@ public class Flo implements Parcelable {
     public boolean getActive(){
         return this.active;
     }
-    
+
 }

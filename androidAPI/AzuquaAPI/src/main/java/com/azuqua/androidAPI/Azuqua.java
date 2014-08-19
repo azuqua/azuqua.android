@@ -7,6 +7,7 @@ import com.android.volley.Request;
 import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.AuthFailureError;
 import com.google.gson.Gson;
@@ -31,7 +32,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Azuqua {
     private static final String TAG = "Azuqua";
-    private static final String baseURL = "http://api.azuqua.com";
+    private static final String baseURL = "http://devapi.azuqua.com";
     private static Gson gson = new Gson();
     protected final static char[] hexArray = "0123456789abcdef".toCharArray(); //Faster hex convert?
 
@@ -72,12 +73,10 @@ public class Azuqua {
         return flos;
     }
 
-
     //*** Azuqua API Calls ***
-
     //Sign in
     public static void signIn(String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
-        String url = baseURL + "/signIn";
+        String url = baseURL + "/account/data";
         Log.i(TAG, "Creating String Request...");
         Log.i(TAG, "URL: " + url);
 
@@ -87,24 +86,32 @@ public class Azuqua {
     }
 
     //Get Orgs
-    public static void getOrgs(String token, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) throws JSONException {
-        String url = baseURL + "/orgs";
+    public static void getOrgs(String password, String email, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException {
+        String url = baseURL + "/account/data";
         Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
         Log.i(TAG, "URL: " + url);
 
         //No Params
         Map params = new HashMap();
-        RequestData requestData = new RequestData("", "", params, "POST", "/orgs");
-        String jsonData = gson.toJson(requestData);
+        params.put("email", email);
+        params.put("password", password);
 
-        JSONObject data = new JSONObject(jsonData);
-        //AzuquaJSONArrayRequest request = new AzuquaJSONArrayRequest(Request.Method.POST, url, data.toString(), listener, errorListener);
-        //RequestQueue queue = MyVolley.getRequestQueue();
-        //queue.add(request);
+        //Time stamp request
+        //String timestamp = generateTimeStamp();
+
+        //Sign Data
+        //String hash = signData(accessSecret, params, "POST", timestamp, "/account/flos");
+        JSONObject json = new JSONObject(params);
+
+        //Create and Submit Request
+        JsonObjectRequest request = new JsonObjectRequest(url, json, listener, errorListener);
+        logRequest(request);
+        RequestQueue queue = MyVolley.getRequestQueue();
+        queue.add(request);
     }
 
     //Get Flos
-    public static void getFlos(String accessKey, String accessSecret, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) throws JSONException, NoSuchAlgorithmException{
+    public static void getFlos(String accessKey, String accessSecret, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
         String url = baseURL + "/account/flos";
         Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
         Log.i(TAG, "URL: " + url);
@@ -115,12 +122,14 @@ public class Azuqua {
         //Time stamp request
         String timestamp = generateTimeStamp();
 
+        //Sign Data
         String hash = signData(accessSecret, params, "POST", timestamp, "/account/flos");
 
-        AzuquaJSONArrayRequest request = new AzuquaJSONArrayRequest(Request.Method.POST, url, "", hash, timestamp, accessKey, listener, errorListener);
-        logRequest(request);
-        RequestQueue queue = MyVolley.getRequestQueue();
-        queue.add(request);
+        //Create and Submit request
+        //AzuquaJSONArrayRequest request = new AzuquaJSONArrayRequest(Request.Method.POST, url, "", hash, timestamp, accessKey, listener, errorListener);
+        //logRequest(request);
+        //RequestQueue queue = MyVolley.getRequestQueue();
+        //queue.add(request);
     }
 
     private static void logRequest(Request request){
@@ -135,7 +144,7 @@ public class Azuqua {
         } catch (AuthFailureError e){
             Log.i(TAG, "AuthFailureError" + e.getMessage());
         }
-        Log.i(TAG, "Request Conten-Type");
+        Log.i(TAG, "Request Content-Type");
         Log.i(TAG, request.getBodyContentType());
     }
 

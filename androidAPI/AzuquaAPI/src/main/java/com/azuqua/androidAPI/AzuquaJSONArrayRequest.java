@@ -24,17 +24,17 @@ public class AzuquaJSONArrayRequest extends Request<JSONArray> {
     private static final String PROTOCOL_CONTENT_TYPE = String.format("application/json; charset=%s", PROTOCOL_CHARSET);
     private final Listener<JSONArray> listener;
     private final String mRequestBody;
-    private final String timestamp;
-    private final String hash;
-    private final String accessKey;
+    //private final String timestamp;
+    //private final String hash;
+    //private final String accessKey;
 
-    public AzuquaJSONArrayRequest(int method, String url, String data, String hash, String timestamp, String accessKey, Listener<JSONArray> listener, Response.ErrorListener errorListener) {
+    public AzuquaJSONArrayRequest(int method, String url, String data,  Listener<JSONArray> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
-        this.timestamp = timestamp;
+        //this.timestamp = timestamp;
         this.listener = listener;
         this.mRequestBody = data;
-        this.hash = hash;
-        this.accessKey = accessKey;
+        //this.hash = hash;
+        //this.accessKey = accessKey;
     }
 
     @Override
@@ -72,12 +72,14 @@ public class AzuquaJSONArrayRequest extends Request<JSONArray> {
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
         Map headers = new HashMap<String, String>();
+
+        /*
         headers.put("Content-Length", Integer.toString(mRequestBody.getBytes().length));
         headers.put("Content-Type", "application/json");
         headers.put("x-api-timestamp", this.timestamp);
         headers.put("x-api-hash", this.hash);
         headers.put("x-api-accessKey", this.accessKey);
-
+*/
         return headers;
     }
 
