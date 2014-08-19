@@ -132,6 +132,25 @@ public class Azuqua {
         //queue.add(request);
     }
 
+    //Invoke Flo
+    public static void invokeFlo(String accessKey, String accessSecret, String id, HashMap data, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
+        String url = baseURL + "/flo/" + id + "/invoke";
+        Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
+        Log.i(TAG, "URL: " + url);
+
+        //Time stamp request
+        String timestamp = generateTimeStamp();
+
+        //Sign Data
+        String hash = signData(accessSecret, data, "POST", "/flo/" + id + "/invoke", timestamp);
+
+        //Create and Submit request
+        AzuquaJSONArrayRequest request = new AzuquaJSONArrayRequest(Request.Method.POST, url, data, hash, timestamp, accessKey, listener, errorListener);
+        logRequest(request);
+        RequestQueue queue = MyVolley.getRequestQueue();
+        queue.add(request);
+    }
+
     private static void logRequest(Request request){
         Log.i(TAG, "Request Log\n");
         try {
@@ -158,7 +177,7 @@ public class Azuqua {
     }
 
     //SignData
-    private static String signData(String accessSecret, Map data, String method, String timestamp, String path) throws NoSuchAlgorithmException{
+    private static String signData(String accessSecret, Map data, String method, String path, String timestamp) throws NoSuchAlgorithmException{
         final Charset charSet = Charset.forName("US-ASCII");
         final Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
         final SecretKeySpec secret_key = new SecretKeySpec(charSet.encode(accessSecret).array(), "HmacSHA256");
@@ -169,8 +188,15 @@ public class Azuqua {
             Log.i(TAG, e.getMessage());
         }
 
+        String stringData;
+        if(data.isEmpty()){
+            stringData = "";
+        } else {
+            stringData = data.toString();
+        }
+
         String meta = method.toLowerCase() + ":" + path + ":" + timestamp;
-        String toBeEncrypted = meta + data.toString();
+        String toBeEncrypted = meta + stringData;
 
         return bytesToHex(sha256_HMAC.doFinal(toBeEncrypted.getBytes()));
     }
