@@ -3,6 +3,7 @@ package com.azuqua.androidAPI;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
@@ -31,8 +32,8 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 public class Azuqua {
-    private static final String TAG = "Azuqua";
-    private static final String baseURL = "http://devapi.azuqua.com";
+    private static final String TAG = "AzuquaAPI";
+    private static final String baseURL = "http://api.azuqua.com";
     private static Gson gson = new Gson();
     protected final static char[] hexArray = "0123456789abcdef".toCharArray(); //Faster hex convert?
 
@@ -105,7 +106,7 @@ public class Azuqua {
 
         //Create and Submit Request
         JsonObjectRequest request = new JsonObjectRequest(url, json, listener, errorListener);
-        logRequest(request);
+        request.setRetryPolicy(new DefaultRetryPolicy(8000, 0, 3));
         RequestQueue queue = MyVolley.getRequestQueue();
         queue.add(request);
     }
@@ -133,7 +134,7 @@ public class Azuqua {
     }
 
     //Invoke Flo
-    public static void invokeFlo(String accessKey, String accessSecret, String id, HashMap data, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
+    public static void invokeFlo(String accessKey, String accessSecret, String id, HashMap data, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
         String url = baseURL + "/flo/" + id + "/invoke";
         Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
         Log.i(TAG, "URL: " + url);
@@ -145,32 +146,38 @@ public class Azuqua {
         String hash = signData(accessSecret, data, "POST", "/flo/" + id + "/invoke", timestamp);
 
         //Create and Submit request
-        AzuquaJSONArrayRequest request = new AzuquaJSONArrayRequest(Request.Method.POST, url, data, hash, timestamp, accessKey, listener, errorListener);
-        logRequest(request);
+        AzuquaJSONObjectRequest request = new AzuquaJSONObjectRequest(Request.Method.POST, url, data, hash, timestamp, accessKey, listener, errorListener);
+        request.setRetryPolicy(new DefaultRetryPolicy(8000, 0, 3));
         RequestQueue queue = MyVolley.getRequestQueue();
         queue.add(request);
     }
 
     private static void logRequest(Request request){
-        Log.i(TAG, "Request Log\n");
+        Log.i(TAG, "Request Log\n\n");
         try {
             Log.i(TAG, "Request Body:");
             Log.i(TAG, request.getBody().toString());
 
             Log.i(TAG, "Request Headers:");
-            Log.i(TAG, request.getHeaders().toString());
+            JSONObject headers = new JSONObject(request.getHeaders());
+            Log.i(TAG, headers.toString());
+
 
         } catch (AuthFailureError e){
             Log.i(TAG, "AuthFailureError" + e.getMessage());
         }
+
         Log.i(TAG, "Request Content-Type");
         Log.i(TAG, request.getBodyContentType());
+
+        Log.i(TAG, "Request.toString()");
+        Log.i(TAG, request.toString());
     }
 
     //Generate TimeStamp
     private static String generateTimeStamp(){
         TimeZone tz = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss'Z'");
         df.setTimeZone(tz);
         String nowAsISO = df.format(new Date());
         return nowAsISO;
@@ -192,13 +199,17 @@ public class Azuqua {
         if(data.isEmpty()){
             stringData = "";
         } else {
-            stringData = data.toString();
+            JSONObject jsonData = new JSONObject(data);
+            stringData = jsonData.toString();
         }
 
         String meta = method.toLowerCase() + ":" + path + ":" + timestamp;
         String toBeEncrypted = meta + stringData;
 
-        return bytesToHex(sha256_HMAC.doFinal(toBeEncrypted.getBytes()));
+        String hash =  bytesToHex(sha256_HMAC.doFinal(toBeEncrypted.getBytes()));
+        Log.i(TAG, "hash returned: " + hash);
+
+        return hash;
     }
 
     //Quicker bytes to Hex?

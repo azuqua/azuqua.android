@@ -2,36 +2,37 @@ package com.azuqua.androidAPI;
 
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.Response.Listener;
-import com.android.volley.ParseError;
-import com.android.volley.NetworkResponse;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.AuthFailureError;
 import com.android.volley.toolbox.HttpHeaderParser;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.json.JSONException;
-
-import java.util.Map;
-import java.util.HashMap;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class AzuquaJSONArrayRequest extends Request<JSONArray> {
+/**
+ * Created by dylancastine on 8/20/14.
+ */
+public class AzuquaJSONObjectRequest  extends Request<JSONObject> {
     private static final String TAG = "AzuquaRequest";
     private static final String PROTOCOL_CHARSET = "utf-8";
     private static final String PROTOCOL_CONTENT_TYPE = String.format("application/json; charset=%s", PROTOCOL_CHARSET);
-    private final Listener<JSONArray> listener;
+    private final Response.Listener<JSONObject> listener;
     private final String mRequestBody;
     private final String timestamp;
     private final String hash;
     private final String accessKey;
 
-    public AzuquaJSONArrayRequest(int method, String url, HashMap data, String hash, String timestamp, String accessKey, Listener<JSONArray> listener, Response.ErrorListener errorListener) {
+    public AzuquaJSONObjectRequest(int method, String url, HashMap data, String hash, String timestamp, String accessKey, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         this.timestamp = timestamp;
         this.listener = listener;
@@ -57,7 +58,7 @@ public class AzuquaJSONArrayRequest extends Request<JSONArray> {
     }
 
     @Override
-    protected void deliverResponse(JSONArray response) {
+    protected void deliverResponse(JSONObject response) {
         listener.onResponse(response);
     }
 
@@ -97,4 +98,3 @@ public class AzuquaJSONArrayRequest extends Request<JSONArray> {
         return volleyError;
     }
 }
-
