@@ -10,16 +10,16 @@ public class Flo implements Parcelable {
     private String name;
     private String alias;
     private String description;
-    private AzuquaInput[] options;
+    private AzuquaInput[] inputs;
     private boolean active;
 
-    public Flo(String id, String name, String alias, String description, Boolean active, AzuquaInput[] options) {
+    public Flo(String id, String name, String alias, String description, Boolean active, AzuquaInput[] inputs) {
         this.id = id;
         this.name = name;
         this.alias = alias;
         this.description = description;
         this.active = active;
-        this.options = options;
+        this.inputs = inputs;
     }
 
     public Flo(Parcel in){
@@ -43,7 +43,7 @@ public class Flo implements Parcelable {
         */
         Parcelable[] parcelableArray =  in.readParcelableArray(AzuquaInput.class.getClassLoader());
         if (parcelableArray != null) {
-            this.options = Arrays.copyOf(parcelableArray, parcelableArray.length, AzuquaInput[].class);
+            this.inputs = Arrays.copyOf(parcelableArray, parcelableArray.length, AzuquaInput[].class);
         }
 
         in.readBooleanArray(booleanData);
@@ -60,7 +60,7 @@ public class Flo implements Parcelable {
         });
 
         //out.writeStringArray(this.inputs);
-        out.writeParcelableArray(options, flags);
+        out.writeParcelableArray(inputs, flags);
 
         out.writeBooleanArray(new boolean[] {
                 this.active
@@ -100,7 +100,7 @@ public class Flo implements Parcelable {
     }
 
     public void setOptions(AzuquaInput[] opitons) {
-        this.options = options;
+        this.inputs = inputs;
     }
 
     public boolean isActive() {
@@ -137,8 +137,8 @@ public class Flo implements Parcelable {
     }
 
     //Get Inputs
-    public AzuquaInput[] getOptions() {
-        return options;
+    public AzuquaInput[] getInputs() {
+        return inputs;
     }
 
 }
