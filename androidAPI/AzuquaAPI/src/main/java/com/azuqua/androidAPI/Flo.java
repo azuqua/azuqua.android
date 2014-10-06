@@ -3,23 +3,23 @@ package com.azuqua.androidAPI;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Flo implements Parcelable {
     private String id;
     private String name;
     private String alias;
     private String description;
-    private String[] inputs;
+    private AzuquaInput[] options;
     private boolean active;
 
-    public Flo(String id, String name, String alias, String description, Boolean active, String[] inputs) {
+    public Flo(String id, String name, String alias, String description, Boolean active, AzuquaInput[] options) {
         this.id = id;
         this.name = name;
         this.alias = alias;
         this.description = description;
         this.active = active;
-        this.inputs = inputs;
+        this.options = options;
     }
 
     public Flo(Parcel in){
@@ -32,6 +32,7 @@ public class Flo implements Parcelable {
         this.alias = stringData[2];
         this.description = stringData[3];
 
+        /*
         //Hack
         ArrayList<String> tempInputs = new ArrayList<String>();
         for(int i = 4; i < stringData.length; i++){
@@ -39,6 +40,11 @@ public class Flo implements Parcelable {
         }
 
         this.inputs = tempInputs.toArray(new String[tempInputs.size()]);
+        */
+        Parcelable[] parcelableArray =  in.readParcelableArray(AzuquaInput.class.getClassLoader());
+        if (parcelableArray != null) {
+            this.options = Arrays.copyOf(parcelableArray, parcelableArray.length, AzuquaInput[].class);
+        }
 
         in.readBooleanArray(booleanData);
         this.active = booleanData[0];
@@ -53,7 +59,8 @@ public class Flo implements Parcelable {
                 this.description
         });
 
-        out.writeStringArray(this.inputs);
+        //out.writeStringArray(this.inputs);
+        out.writeParcelableArray(options, flags);
 
         out.writeBooleanArray(new boolean[] {
                 this.active
@@ -92,8 +99,8 @@ public class Flo implements Parcelable {
         this.description = description;
     }
 
-    public void setInputs(String[] inputs) {
-        this.inputs = inputs;
+    public void setOptions(AzuquaInput[] opitons) {
+        this.options = options;
     }
 
     public boolean isActive() {
@@ -130,8 +137,8 @@ public class Flo implements Parcelable {
     }
 
     //Get Inputs
-    public String[] getInputs() {
-        return inputs;
+    public AzuquaInput[] getOptions() {
+        return options;
     }
 
 }
