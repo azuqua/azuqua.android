@@ -9,11 +9,11 @@ public class AzuquaInput implements Parcelable{
     private String name;
     private String type;
     private int position;
-    private String[] options;
+    private ArrayList<String> options;
 
     public AzuquaInput(){}
 
-    public AzuquaInput(String name, String type, int position, String[] options){
+    public AzuquaInput(String name, String type, int position, ArrayList<String> options){
         this.name = name;
         this.type = type;
         this.position = position;
@@ -26,14 +26,9 @@ public class AzuquaInput implements Parcelable{
         in.readStringArray(stringData);
         this.name = stringData[0];
         this.type = stringData[1];
-
-        ArrayList<String> tempOptions = new ArrayList<String>();
-        for(int i = 2; i < stringData.length; i++){
-            tempOptions.add(stringData[i]);
-        }
-
-        this.options = tempOptions.toArray(new String[tempOptions.size()]);
         this.position = in.readInt();
+
+        this.options  =  in.readArrayList(String.class.getClassLoader());
     }
 
     @Override
@@ -49,7 +44,7 @@ public class AzuquaInput implements Parcelable{
         });
 
         out.writeInt(this.position);
-        out.writeStringArray(this.options);
+        out.writeList(this.options);
     }
 
     public static final Creator<AzuquaInput> CREATOR = new Creator<AzuquaInput>() {
@@ -86,11 +81,11 @@ public class AzuquaInput implements Parcelable{
         this.position = position;
     }
 
-    public String[] getOptions() {
+    public ArrayList<String> getOptions() {
         return options;
     }
 
-    public void setOptions(String[] options) {
+    public void setOptions(ArrayList<String> options) {
         this.options = options;
     }
 }

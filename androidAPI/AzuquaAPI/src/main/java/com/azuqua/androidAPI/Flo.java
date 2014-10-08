@@ -67,7 +67,6 @@ public class Flo implements Parcelable {
                 this.description
         });
 
-        //out.writeStringArray(this.inputs);
         AzuquaInput[] inputsArray = this.inputs.toArray(new AzuquaInput[this.inputs.size()]);
         out.writeParcelableArray(inputsArray, flags);
 
