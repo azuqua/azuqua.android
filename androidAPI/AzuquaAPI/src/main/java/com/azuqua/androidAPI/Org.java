@@ -8,6 +8,8 @@ public class Org {
     private String accessSecret;
     private ArrayList flos;
 
+    public Org(){}
+
     public Org(String name, String accessKey, String accessSecret, ArrayList flos){
         this.name = name;
         this.accessKey = accessKey;
