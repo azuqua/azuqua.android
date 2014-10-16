@@ -1,61 +1,94 @@
 package com.azuqua.androidAPI;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AzuquaInput implements Parcelable{
+public class AzuquaInput implements  Serializable{
     private String name;
     private String type;
+    private String value;
+    private String help;
+    private String label;
+    private String placeholder;
+    private String classType;
+    private boolean required;
+    private boolean readonly;
     private int position;
     private ArrayList<String> options;
 
     public AzuquaInput(){}
 
-    public AzuquaInput(String name, String type, int position, ArrayList<String> options){
+    public AzuquaInput(String name, String type, String value, String help, String label,
+                       String placeholder, String classType, boolean required, boolean readonly, int position, ArrayList<String> options){
         this.name = name;
         this.type = type;
+        this.value = value;
+        this.help = help;
+        this.label = label;
+        this.placeholder = placeholder;
+        this.classType = classType;
+
+        this.required = required;
+        this.readonly = readonly;
         this.position = position;
         this.options = options;
     }
 
-    public AzuquaInput(Parcel in){
-        String[] stringData = new String[2];
-
-        in.readStringArray(stringData);
-        this.name = stringData[0];
-        this.type = stringData[1];
-        this.position = in.readInt();
-
-        this.options  =  in.readArrayList(String.class.getClassLoader());
+    public String getValue() {
+        return value;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    @Override
-    public void writeToParcel(Parcel out, int flags){
-        out.writeStringArray(new String[] {
-                this.name,
-                this.type
-        });
-
-        out.writeInt(this.position);
-        out.writeList(this.options);
+    public String getHelp() {
+        return help;
     }
 
-    public static final Creator<AzuquaInput> CREATOR = new Creator<AzuquaInput>() {
-        public AzuquaInput createFromParcel(Parcel in){
-            return new AzuquaInput(in);
-        }
+    public void setHelp(String help) {
+        this.help = help;
+    }
 
-        public AzuquaInput[] newArray(int size){
-            return new AzuquaInput[size];
-        }
-    };
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getPlaceholder() {
+        return placeholder;
+    }
+
+    public void setPlaceholder(String placeholder) {
+        this.placeholder = placeholder;
+    }
+
+    public String getClassType() {
+        return classType;
+    }
+
+    public void setClassType(String classType) {
+        this.classType = classType;
+    }
+
+    public boolean isRequired() {
+        return required;
+    }
+
+    public void setRequired(boolean required) {
+        this.required = required;
+    }
+
+    public boolean isReadonly() {
+        return readonly;
+    }
+
+    public void setReadonly(boolean readonly) {
+        this.readonly = readonly;
+    }
 
     public String getName() {
         return name;
