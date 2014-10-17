@@ -152,6 +152,25 @@ public class Azuqua {
         queue.add(request);
     }
 
+    //Get Flo State
+    public static void getFloState(String floId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
+        String url = baseURL + "/flo/" + floId + "/status";
+        Log.i(TAG, "URL: " + url);
+
+        //Time stamp request
+        String timestamp = generateTimeStamp();
+
+        //Sign Data
+        //String hash = signData(accessSecret, data, "POST", "/flo/" + id + "/invoke", timestamp);
+
+        //Create and Submit request
+        //AzuquaJSONObjectRequest request = new AzuquaJSONObjectRequest(Request.Method.POST, url, data, hash, timestamp, accessKey, listener, errorListener);
+        //request.setRetryPolicy(new DefaultRetryPolicy(8000, 0, 3));
+        //RequestQueue queue = MyVolley.getRequestQueue();
+        //queue.add(request);
+    }
+
+    
     private static void logRequest(Request request){
         Log.i(TAG, "Request Log\n\n");
         try {
