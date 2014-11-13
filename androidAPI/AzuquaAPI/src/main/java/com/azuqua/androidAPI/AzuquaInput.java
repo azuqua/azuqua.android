@@ -3,7 +3,7 @@ package com.azuqua.androidAPI;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AzuquaInput implements  Serializable{
+public class AzuquaInput implements Serializable {
     private String name;
     private String type;
     private String value;

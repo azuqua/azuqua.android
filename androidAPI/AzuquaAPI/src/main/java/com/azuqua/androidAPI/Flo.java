@@ -41,6 +41,7 @@ public class Flo implements Serializable {
         this.state = state;
     }
 
+
     public void setAlias(String alias) {
         this.alias = alias;
     }

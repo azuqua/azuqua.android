@@ -1,6 +1,8 @@
 package com.azuqua.androidAPI;
 
-public class FloState {
+import java.io.Serializable;
+
+public class FloState implements Serializable{
 
 
 

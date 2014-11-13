@@ -136,8 +136,6 @@ public class Azuqua {
     //Invoke Flo
     public static void invokeFlo(String accessKey, String accessSecret, String id, HashMap data, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
         String url = baseURL + "/flo/" + id + "/invoke";
-        Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
-        Log.i(TAG, "URL: " + url);
 
         //Time stamp request
         String timestamp = generateTimeStamp();
@@ -153,24 +151,29 @@ public class Azuqua {
     }
 
     //Get Flo State
-    public static void getFloState(String floId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
-        String url = baseURL + "/flo/" + floId + "/status";
-        Log.i(TAG, "URL: " + url);
+    public static void getFloState(String accessKey, String accessSecret, String alias, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
+        String url = baseURL + "/api/floapp/read";
 
         //Time stamp request
         String timestamp = generateTimeStamp();
 
+        //Empty data
+        HashMap data = new HashMap();
+        data.put("alias", alias);
+
         //Sign Data
-        //String hash = signData(accessSecret, data, "POST", "/flo/" + id + "/invoke", timestamp);
+        String hash = signData(accessSecret, data, "POST", "/flo/" + alias + "/status", timestamp);
 
         //Create and Submit request
-        //AzuquaJSONObjectRequest request = new AzuquaJSONObjectRequest(Request.Method.POST, url, data, hash, timestamp, accessKey, listener, errorListener);
-        //request.setRetryPolicy(new DefaultRetryPolicy(8000, 0, 3));
-        //RequestQueue queue = MyVolley.getRequestQueue();
-        //queue.add(request);
+        AzuquaJSONObjectRequest request = new AzuquaJSONObjectRequest(Request.Method.POST, url, data, hash, timestamp, accessKey, listener, errorListener);
+        request.setRetryPolicy(new DefaultRetryPolicy(8000, 0, 3));
+        Log.i(TAG, "Sending getFloState");
+        RequestQueue queue = MyVolley.getRequestQueue();
+        logRequest(request);
+        queue.add(request);
     }
 
-    
+
     private static void logRequest(Request request){
         Log.i(TAG, "Request Log\n\n");
         try {
