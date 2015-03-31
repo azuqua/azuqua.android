@@ -1,28 +1,21 @@
 package com.azuqua.androidAPI.test;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-
-import com.android.volley.VolleyLog;
 import com.azuqua.androidAPI.Azuqua;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.NoSuchAlgorithmException;
 
-public class TestActivity extends Activity {
+public class TestActivity extends ActionBarActivity {
     private static  final String TAG = "TestActivity";
-    private static  final String AccessKey = "cf589168e17832fa0d49c30051baa50dfeb0230f";
-    private static  final String AccessSecret = "445c124fe15dcbd5e8a5dfa7fe108db859b7d1788c61e7525d4f01f0bbbc708e";
-    private static  final String PASSWORD = "kevin@azuqua.com";
-    private static  final String EMAIL = "kevin@azuqua.com";
 
     //UI reference
     TextView infoTextView;
@@ -38,8 +31,8 @@ public class TestActivity extends Activity {
         Azuqua.initialize(this);
 
         //Begin Tests
-        //signInTest();
-        getOrgsTest();
+        signInTest();
+//        getOrgsTest();
         //getFlosTest();
     }
 
@@ -48,14 +41,14 @@ public class TestActivity extends Activity {
     //signInTest
     public void signInTest(){
         infoTextView.setText(infoTextView.getText() + "\nSignIn Test");
-        Azuqua.signIn("dylan@azuqua.com", "ddc888", createSignInListener(), createSignInErrorListener());
+        Azuqua.signIn(Config.EMAIL, Config.PASSWORD, createSignInListener(), createSignInErrorListener());
     }
 
     //getOrgsTest
     public void getOrgsTest(){
         infoTextView.setText(infoTextView.getText() + "\nGetOrgs Test");
         try {
-            Azuqua.getOrgs(PASSWORD, EMAIL, createGetOrgsListener(), createGetOrgsErrorListener());
+            Azuqua.getOrgs(Config.PASSWORD, Config.EMAIL, createGetOrgsListener(), createGetOrgsErrorListener());
         } catch (NoSuchAlgorithmException e){
             Log.i(TAG, "NoSuchAlgorithmException, I'm DEAD");
             finish();
@@ -66,7 +59,7 @@ public class TestActivity extends Activity {
     public void getFlosTest(){
         infoTextView.setText(infoTextView.getText() + "\nGetFlos Test");
         try {
-            Azuqua.getFlos(AccessKey, AccessSecret, createGetFlosListener(), createGetFlosErrorListener());
+            Azuqua.getFlos(Config.AccessKey, Config.AccessSecret, createGetFlosListener(), createGetFlosErrorListener());
         } catch (Exception e){
             Log.i(TAG, "Exception, I'm DEAD: \n" + e.getMessage());
             finish();
@@ -143,8 +136,6 @@ public class TestActivity extends Activity {
                 Log.i(TAG, "local message: " + error.getLocalizedMessage());
                 Log.i(TAG, "message: " + error.getMessage());
                 Log.i(TAG, "data: " + error.networkResponse.data.toString());
-
-
             }
         };
         return errorListener;

@@ -1,6 +1,5 @@
 package com.azuqua.androidAPI;
 
-import android.app.ActivityManager;
 import android.content.Context;
 
 import com.android.volley.RequestQueue;

@@ -5,11 +5,11 @@ import android.util.Log;
 
 import java.nio.charset.Charset;
 import java.security.InvalidKeyException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

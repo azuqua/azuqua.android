@@ -3,6 +3,7 @@ package com.azuqua.androidAPI;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Request.Method;
@@ -10,7 +11,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.AuthFailureError;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -24,8 +24,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 import javax.crypto.Mac;
@@ -33,7 +33,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Azuqua {
     private static final String TAG = "AzuquaAPI";
-    private static final String baseURL = "http://api.azuqua.com";
     private static Gson gson = new Gson();
     protected final static char[] hexArray = "0123456789abcdef".toCharArray(); //Faster hex convert?
 
@@ -76,19 +75,29 @@ public class Azuqua {
 
     //*** Azuqua API Calls ***
     //Sign in
-    public static void signIn(String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
-        String url = baseURL + "/account/data";
+    public static void signIn(final String email, final String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
+        String url = Constants.baseURL + "/account/data";
         Log.i(TAG, "Creating String Request...");
         Log.i(TAG, "URL: " + url);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, listener, errorListener);
+
+        StringRequest stringRequest = new StringRequest(Method.POST, url, listener, errorListener){
+
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email",email);
+                params.put("password",password);
+
+                return params;
+            };
+        };
         RequestQueue queue = MyVolley.getRequestQueue();
         queue.add(stringRequest);
     }
 
     //Get Orgs
     public static void getOrgs(String password, String email, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException {
-        String url = baseURL + "/account/data";
+        String url = Constants.baseURL + "/account/data";
         Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
         Log.i(TAG, "URL: " + url);
 
@@ -113,7 +122,7 @@ public class Azuqua {
 
     //Get Flos
     public static void getFlos(String accessKey, String accessSecret, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
-        String url = baseURL + "/account/flos";
+        String url = Constants.baseURL + "/account/flos";
         Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
         Log.i(TAG, "URL: " + url);
 
@@ -135,7 +144,7 @@ public class Azuqua {
 
     //Invoke Flo
     public static void invokeFlo(String accessKey, String accessSecret, String id, HashMap data, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) throws NoSuchAlgorithmException{
-        String url = baseURL + "/flo/" + id + "/invoke";
+        String url = Constants.baseURL + "/flo/" + id + "/invoke";
         Log.i(TAG, "Creating AzuquaJSONArrayRequest...");
         Log.i(TAG, "URL: " + url);
 
