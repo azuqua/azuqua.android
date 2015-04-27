@@ -1,14 +1,18 @@
-package com.azuqua.androidAPI;
+package com.azuqua.androidAPI.model;
 
 import java.util.ArrayList;
 
+/**
+ * Created by BALASASiDHAR on 25-Apr-15.
+ */
 public class Org {
+
     private String name;
     private String accessKey;
     private String accessSecret;
-    private ArrayList flos;
+    private ArrayList<Flo> flos;
 
-    public Org(String name, String accessKey, String accessSecret, ArrayList flos){
+    public Org(String name, String accessKey, String accessSecret, ArrayList<Flo> flos){
         this.name = name;
         this.accessKey = accessKey;
         this.accessSecret = accessSecret;
@@ -33,7 +37,7 @@ public class Org {
         this.accessSecret = accessSecret;
     }
 
-    public void setFlos(ArrayList flos) {
+    public void setFlos(ArrayList<Flo> flos) {
         this.flos = flos;
     }
 

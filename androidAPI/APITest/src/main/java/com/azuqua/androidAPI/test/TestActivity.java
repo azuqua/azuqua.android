@@ -5,20 +5,29 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
+import com.azuqua.androidAPI.AsyncResponse;
 import com.azuqua.androidAPI.Azuqua;
+import com.azuqua.androidAPI.AzuquaException;
+import com.azuqua.androidAPI.log.Logs;
+import com.azuqua.androidAPI.model.Flo;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.security.NoSuchAlgorithmException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.util.Collection;
 
 public class TestActivity extends ActionBarActivity {
     private static  final String TAG = "TestActivity";
 
+    private static Gson gson = new Gson();
     //UI reference
     TextView infoTextView;
+
+    private String accessKey = ""; // Account AccessKey
+    private String accessSecret = ""; // Account AccessSecretKey
+
+    private String data = ""; // Input data to invoke a flo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,119 +35,53 @@ public class TestActivity extends ActionBarActivity {
         setContentView(R.layout.activity_test);
 
         infoTextView = (TextView) findViewById(R.id.info);
-        infoTextView.setText("Starting Tests \n");
 
-        Azuqua.initialize(this);
+        final Azuqua azuqua = new Azuqua(accessKey,accessSecret);
 
-        //Begin Tests
-        signInTest();
-//        getOrgsTest();
-        //getFlosTest();
-    }
-
-    // ***API Tests***
-
-    //signInTest
-    public void signInTest(){
-        infoTextView.setText(infoTextView.getText() + "\nSignIn Test");
-        Azuqua.signIn(Config.EMAIL, Config.PASSWORD, createSignInListener(), createSignInErrorListener());
-    }
-
-    //getOrgsTest
-    public void getOrgsTest(){
-        infoTextView.setText(infoTextView.getText() + "\nGetOrgs Test");
-        try {
-            Azuqua.getOrgs(Config.PASSWORD, Config.EMAIL, createGetOrgsListener(), createGetOrgsErrorListener());
-        } catch (NoSuchAlgorithmException e){
-            Log.i(TAG, "NoSuchAlgorithmException, I'm DEAD");
-            finish();
-        }
-    }
-
-    //getFlosTest
-    public void getFlosTest(){
-        infoTextView.setText(infoTextView.getText() + "\nGetFlos Test");
-        try {
-            Azuqua.getFlos(Config.AccessKey, Config.AccessSecret, createGetFlosListener(), createGetFlosErrorListener());
-        } catch (Exception e){
-            Log.i(TAG, "Exception, I'm DEAD: \n" + e.getMessage());
-            finish();
-        }
-    }
-
-    //Listeners For Tests
-    //SignIn listeners
-    public Response.Listener<String> createSignInListener(){
-        Response.Listener listener = new Response.Listener<String>() {
+        azuqua.login("username@azuqua.com", "password", new AsyncResponse() {
             @Override
             public void onResponse(String response) {
-                infoTextView.setText(infoTextView.getText() + "\nSignIn Response: " + response);
-                Log.i(TAG, "signIn Response:" + response);
+                infoTextView.setText(response);
             }
-        };
-        return listener;
-    }
 
-    public Response.ErrorListener createSignInErrorListener(){
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                infoTextView.setText(infoTextView.getText() + "\nSignIn Response: Error");
-                Log.i(TAG, "signIn Response: Error");
+            public void onErrorResponse(String error) {
+                infoTextView.setText(error);
             }
-        };
-        return errorListener;
-    }
+        });
 
-
-    //GetOrgs listeners
-    public Response.Listener<JSONObject> createGetOrgsListener(){
-        Response.Listener listener = new Response.Listener<JSONObject>() {
+        azuqua.getFlos(new AsyncResponse() {
             @Override
-            public void onResponse(JSONObject response) {
-                infoTextView.setText(infoTextView.getText() + "\nGetOrgs Response: " + response.toString());
-                Log.i(TAG, "getOrgs Response:" + response.toString());
-            }
-        };
-        return listener;
-    }
+            public void onResponse(String response) {
+                infoTextView.setText(response);
+                Type collectionType = new TypeToken<Collection<Flo>>(){}.getType();
 
-    public Response.ErrorListener createGetOrgsErrorListener(){
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
+                Collection<Flo> collection = gson.fromJson(response,collectionType);
+
+                for(Flo flo: collection){
+                    flo.setAzuqua(azuqua);
+                    try {
+                        flo.invoke(data, new AsyncResponse() {
+                            @Override
+                            public void onResponse(String response) {
+                                infoTextView.setText(response);
+                            }
+
+                            @Override
+                            public void onErrorResponse(String error) {
+                                infoTextView.setText(error);
+                            }
+                        });
+                    } catch (AzuquaException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
             @Override
-            public void onErrorResponse(VolleyError error) {
-                infoTextView.setText(infoTextView.getText() + "\nGetOrgs Response: Error");
-                Log.i(TAG, "getOrgs Response: Error");
+            public void onErrorResponse(String error) {
+                infoTextView.setText(error);
             }
-        };
-        return errorListener;
+        });
     }
-
-    //GetFlos listeners
-    public Response.Listener<JSONArray> createGetFlosListener(){
-        Response.Listener listener = new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                infoTextView.setText(infoTextView.getText() + "\nGetFlos Response: " + response.toString());
-                Log.i(TAG, "getFlos Response:" + response.toString());
-            }
-        };
-        return listener;
-    }
-
-    public Response.ErrorListener createGetFlosErrorListener(){
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                infoTextView.setText(infoTextView.getText() + "\nGetFlos Response: Error");
-                Log.i(TAG, "getFlos Response: Error");
-                Log.i(TAG, error.networkResponse.headers.toString());
-                Log.i(TAG, "local message: " + error.getLocalizedMessage());
-                Log.i(TAG, "message: " + error.getMessage());
-                Log.i(TAG, "data: " + error.networkResponse.data.toString());
-            }
-        };
-        return errorListener;
-    }
-
 }
