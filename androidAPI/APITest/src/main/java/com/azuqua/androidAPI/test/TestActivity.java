@@ -2,20 +2,15 @@ package com.azuqua.androidAPI.test;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.azuqua.androidAPI.AsyncResponse;
 import com.azuqua.androidAPI.Azuqua;
-import com.azuqua.androidAPI.AzuquaException;
-import com.azuqua.androidAPI.log.Logs;
+import com.azuqua.androidAPI.AzuquaAllFlosRequest;
+import com.azuqua.androidAPI.AzuquaFloRequest;
 import com.azuqua.androidAPI.model.Flo;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.util.Collection;
 
 public class TestActivity extends ActionBarActivity {
@@ -39,78 +34,40 @@ public class TestActivity extends ActionBarActivity {
 
         final Azuqua azuqua = new Azuqua(accessKey,accessSecret);
 
-//        azuqua.login(Config.EMAIL, Config.PASSWORD, new AsyncResponse() {
+//        azuqua.login(Config.EMAIL, Config.PASSWORD, new AzuquaOrgRequest() {
 //            @Override
-//            public void onResponse(String response) {
-//                infoTextView.setText(response);
+//            public void onResponse(Collection<Org> orgCollection) {
+//                for (Org org:orgCollection)
+//                    Toast.makeText(getApplicationContext(), "Org Name : " +org.getName(), Toast.LENGTH_LONG).show();
 //            }
 //
 //            @Override
 //            public void onErrorResponse(String error) {
-//                infoTextView.setText(error);
+//                Toast.makeText(getApplicationContext(), "Error "+error, Toast.LENGTH_LONG).show();
 //            }
 //        });
 
-        azuqua.getFlos(new AsyncResponse() {
+        azuqua.getFlos(new AzuquaAllFlosRequest() {
             @Override
-            public void onResponse(String response) {
-                infoTextView.setText(response);
-                Type collectionType = new TypeToken<Collection<Flo>>(){}.getType();
+            public void onResponse(Collection<Flo> flosCollection) {
+                for(Flo flo: flosCollection)
+                    flo.read(new AzuquaFloRequest() {
+                        @Override
+                        public void onResponse(Flo floData) {
+                            Toast.makeText(getApplicationContext(), "Flo Name : "+floData.getName(), Toast.LENGTH_SHORT).show();
+                        }
 
-                Collection<Flo> collection = gson.fromJson(response,collectionType);
-
-                for(Flo flo: collection){
-                    flo.setAzuqua(azuqua);
-//                    try {
-//                        flo.invoke(data, new AsyncResponse() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                                infoTextView.setText(response);
-//                            }
-//
-//                            @Override
-//                            public void onErrorResponse(String error) {
-//                                infoTextView.setText(error);
-//                            }
-//                        });
-//                    } catch (AzuquaException e) {
-//                        e.printStackTrace();
-//                    }
-
-                    try {
-                        flo.disable(new AsyncResponse() {
-                            @Override
-                            public void onResponse(String response) {
-                                Toast.makeText(getApplicationContext(),"Response "+response, Toast.LENGTH_LONG).show();
-                            }
-
-                            @Override
-                            public void onErrorResponse(String error) {
-                                Toast.makeText(getApplicationContext(),"Error "+error, Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
+                        @Override
+                        public void onErrorResponse(String error) {
+                            Toast.makeText(getApplicationContext(), "Error "+error, Toast.LENGTH_SHORT).show();
+                        }
+                    });
             }
 
             @Override
             public void onErrorResponse(String error) {
-                infoTextView.setText(error);
+                Toast.makeText(getApplicationContext(), "Error "+error, Toast.LENGTH_SHORT).show();
             }
         });
-
-//        azuqua.getFlos(new AsyncResponse() {
-//            @Override
-//            public void onResponse(String response) {
-//                Toast.makeText(getApplicationContext(), "Response "+response,Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onErrorResponse(String error) {
-//                Toast.makeText(getApplicationContext(), "Error Response "+error,Toast.LENGTH_LONG).show();
-//            }
-//        });
     }
 }

@@ -3,13 +3,17 @@ package com.azuqua.androidAPI.model;
 import com.azuqua.androidAPI.AsyncResponse;
 import com.azuqua.androidAPI.Azuqua;
 import com.azuqua.androidAPI.AzuquaException;
+import com.azuqua.androidAPI.AzuquaFloRequest;
 import com.azuqua.androidAPI.Routes;
+import com.google.gson.Gson;
 
 /**
  * Created by BALASASiDHAR on 25-Apr-15.
  */
 public class Flo {
-    private static boolean DEBUG = true;
+
+    private static Gson gson = new Gson();
+
     private String name;
     private String alias;
     private Azuqua azuqua;
@@ -33,9 +37,7 @@ public class Flo {
      * @param objects
      */
     public static void o(String method, String msg) {
-        if (DEBUG) {
-            System.out.println(Flo.class.getName() + "." + method + ": " + msg);
-        }
+        System.out.println(Flo.class.getName() + "." + method + ": " + msg);
     }
 
     public String invoke(String json, AsyncResponse response) throws AzuquaException {
@@ -52,15 +54,25 @@ public class Flo {
         return out;
     }
 
-    public String read(AsyncResponse response) throws AzuquaException{
+    public String read(final AzuquaFloRequest request){
         String method = "read";
         String path = Routes.FLO_READ.replace(":alias", this.alias);
         o(method, "path " + path);
         String out = null;
         try {
-            out = azuqua.makeRequest("GET", path, "", response);
+            out = azuqua.makeRequest("GET", path, "", new AsyncResponse() {
+                @Override
+                public void onResponse(String response) {
+                    request.onResponse(gson.fromJson(response,Flo.class));
+                }
+
+                @Override
+                public void onErrorResponse(String error) {
+                    request.onErrorResponse(error);
+                }
+            });
         } catch (Exception e) {
-            throw new AzuquaException(e);
+            e.printStackTrace();
         }
         return out;
     }

@@ -1,16 +1,21 @@
 package com.azuqua.androidAPI;
 
+import android.util.Log;
+
 import com.azuqua.androidAPI.log.Logs;
 import com.azuqua.androidAPI.model.Flo;
 import com.azuqua.androidAPI.model.LoginInfo;
+import com.azuqua.androidAPI.model.Org;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Vector;
+import java.lang.reflect.Type;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -98,15 +103,46 @@ public class Azuqua {
         return null;
     }
 
-    public void getFlos(AsyncResponse response){
+    public void getFlos(final AzuquaAllFlosRequest request){
         String path = Routes.ALL_FLOS;
-        makeRequest("GET", path, "", response);
+        makeRequest("GET", path, "", new AsyncResponse() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Flos ", response);
+                Type collectionType = new TypeToken<Collection<Flo>>(){}.getType();
+                Collection<Flo> flos  = gson.fromJson(response, collectionType);
+
+                // give each Flo a reference to this so it can make a request call
+                for (Flo flo : flos) {
+                    flo.setAzuqua(Azuqua.this);
+                }
+                request.onResponse(flos);
+            }
+
+            @Override
+            public void onErrorResponse(String error) {
+                request.onErrorResponse(error);
+            }
+        });
     }
 
-    public void login(String username,String password,AsyncResponse response){
+    public void login(String username,String password, final AzuquaOrgRequest request){
         String path = Routes.LOGIN;
         String loginInfo = gson.toJson(new LoginInfo(username,password));
-        makeRequest("POST",path,loginInfo,response);
+
+        makeRequest("POST", path, loginInfo, new AsyncResponse() {
+            @Override
+            public void onResponse(String response) {
+                Type collectionType = new TypeToken<Collection<Org>>(){}.getType();
+                Collection<Org> orgs  = gson.fromJson(response, collectionType);
+                request.onResponse(orgs);
+            }
+
+            @Override
+            public void onErrorResponse(String error) {
+                request.onErrorResponse(error);
+            }
+        });
     }
 
     public void setAccessKey(String accessKey) {
