@@ -17,14 +17,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Azuqua {
 
-    private boolean DEBUG = true;
     private static Gson gson = new Gson();
-    private Vector<Flo> floCache = new Vector<Flo>();
-
-    // routes
-    public final static String invokeRoute = "/flo/:id/invoke";
-    public final static String listRoute = "/account/flos";
-    public final static String accountsInfoRoute = "/account/data";
 
     // account
     private String accessKey;
@@ -106,12 +99,12 @@ public class Azuqua {
     }
 
     public void getFlos(AsyncResponse response){
-        String path = listRoute;
+        String path = Routes.ALL_FLOS;
         makeRequest("GET", path, "", response);
     }
 
     public void login(String username,String password,AsyncResponse response){
-        String path = accountsInfoRoute;
+        String path = Routes.LOGIN;
         String loginInfo = gson.toJson(new LoginInfo(username,password));
         makeRequest("POST",path,loginInfo,response);
     }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.azuqua.androidAPI.AsyncResponse;
 import com.azuqua.androidAPI.Azuqua;
@@ -24,10 +25,10 @@ public class TestActivity extends ActionBarActivity {
     //UI reference
     TextView infoTextView;
 
-    private String accessKey = ""; // Account AccessKey
-    private String accessSecret = ""; // Account AccessSecretKey
+    private String accessKey = Config.AccessKey;
+    private String accessSecret = Config.AccessSecret;
 
-    private String data = ""; // Input data to invoke a flo
+    private String data = "{\"key\":\"value\"}"; // Input data to invoke a flo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +39,17 @@ public class TestActivity extends ActionBarActivity {
 
         final Azuqua azuqua = new Azuqua(accessKey,accessSecret);
 
-        azuqua.login("username@azuqua.com", "password", new AsyncResponse() {
-            @Override
-            public void onResponse(String response) {
-                infoTextView.setText(response);
-            }
-
-            @Override
-            public void onErrorResponse(String error) {
-                infoTextView.setText(error);
-            }
-        });
+//        azuqua.login(Config.EMAIL, Config.PASSWORD, new AsyncResponse() {
+//            @Override
+//            public void onResponse(String response) {
+//                infoTextView.setText(response);
+//            }
+//
+//            @Override
+//            public void onErrorResponse(String error) {
+//                infoTextView.setText(error);
+//            }
+//        });
 
         azuqua.getFlos(new AsyncResponse() {
             @Override
@@ -60,19 +61,35 @@ public class TestActivity extends ActionBarActivity {
 
                 for(Flo flo: collection){
                     flo.setAzuqua(azuqua);
+//                    try {
+//                        flo.invoke(data, new AsyncResponse() {
+//                            @Override
+//                            public void onResponse(String response) {
+//                                infoTextView.setText(response);
+//                            }
+//
+//                            @Override
+//                            public void onErrorResponse(String error) {
+//                                infoTextView.setText(error);
+//                            }
+//                        });
+//                    } catch (AzuquaException e) {
+//                        e.printStackTrace();
+//                    }
+
                     try {
-                        flo.invoke(data, new AsyncResponse() {
+                        flo.disable(new AsyncResponse() {
                             @Override
                             public void onResponse(String response) {
-                                infoTextView.setText(response);
+                                Toast.makeText(getApplicationContext(),"Response "+response, Toast.LENGTH_LONG).show();
                             }
 
                             @Override
                             public void onErrorResponse(String error) {
-                                infoTextView.setText(error);
+                                Toast.makeText(getApplicationContext(),"Error "+error, Toast.LENGTH_LONG).show();
                             }
                         });
-                    } catch (AzuquaException e) {
+                    }catch (Exception e){
                         e.printStackTrace();
                     }
                 }
@@ -83,5 +100,17 @@ public class TestActivity extends ActionBarActivity {
                 infoTextView.setText(error);
             }
         });
+
+//        azuqua.getFlos(new AsyncResponse() {
+//            @Override
+//            public void onResponse(String response) {
+//                Toast.makeText(getApplicationContext(), "Response "+response,Toast.LENGTH_LONG).show();
+//            }
+//
+//            @Override
+//            public void onErrorResponse(String error) {
+//                Toast.makeText(getApplicationContext(), "Error Response "+error,Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 }

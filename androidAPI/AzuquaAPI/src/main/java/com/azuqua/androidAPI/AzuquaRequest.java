@@ -7,20 +7,23 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLConnection;
 
 import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by BALASASiDHAR on 27-Apr-15.
  */
-public class AzuquaRequest extends AsyncTask<Void, Void, InputStream> {
+public class AzuquaRequest extends AsyncTask<Void, Void, String> {
+
+    public static boolean DEBUG_MODE = true;
 
     public AsyncResponse response;
 
-    private String BASE_URL = "https://api.azuqua.com";
     private String accessKey;
     private String path;
     private String data;
@@ -29,8 +32,13 @@ public class AzuquaRequest extends AsyncTask<Void, Void, InputStream> {
     private String verb;
 
     private URL url;
-    private HttpsURLConnection connection;
+//    private HttpsURLConnection connection;
+    private URLConnection connection;
     private DataOutputStream wr = null;
+
+    private static String BASE_URL = null;
+
+    private static int STATUS_CODE = 0;
 
     public AzuquaRequest(String accessKey,String verb,String path,String data, String hash, String timestamp, AsyncResponse response){
         this.response = response;
@@ -46,6 +54,7 @@ public class AzuquaRequest extends AsyncTask<Void, Void, InputStream> {
     protected void onPreExecute() {
         super.onPreExecute();
         try {
+            BASE_URL = DEBUG_MODE ? Routes.ALPHA_URL : Routes.BASE_URL;
             url = new URL(BASE_URL+this.path);
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -53,9 +62,9 @@ public class AzuquaRequest extends AsyncTask<Void, Void, InputStream> {
     }
 
     @Override
-    protected InputStream doInBackground(Void... params) {
+    protected String doInBackground(Void... params) {
         try {
-            connection = (HttpsURLConnection) url.openConnection();
+            connection = DEBUG_MODE ? (HttpURLConnection) url.openConnection() : (HttpsURLConnection) url.openConnection();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,7 +75,7 @@ public class AzuquaRequest extends AsyncTask<Void, Void, InputStream> {
         connection.setRequestProperty("x-api-hash", this.hash);
         connection.setRequestProperty("x-api-accessKey", this.accessKey);
         try {
-            connection.setRequestMethod(this.verb);
+            ( (HttpURLConnection) connection).setRequestMethod(this.verb);
         } catch (ProtocolException e) {
             e.printStackTrace();
         }
@@ -89,28 +98,26 @@ public class AzuquaRequest extends AsyncTask<Void, Void, InputStream> {
         }
 
         try {
-            return connection.getInputStream();
+            STATUS_CODE = ((HttpURLConnection) connection).getResponseCode();
+            String response = parseStream(connection.getInputStream());
+            return response;
         } catch (IOException e) {
-            return connection.getErrorStream();
+            String error = parseStream( ( (HttpURLConnection) connection).getErrorStream() );
+            e.printStackTrace();
+            return error;
+        }finally {
+            ( (HttpURLConnection) connection).disconnect();
         }
     }
 
     @Override
-    protected void onPostExecute(InputStream inputStream) {
+    protected void onPostExecute(String inputStream) {
         super.onPostExecute(inputStream);
-        try {
-            if(connection.getResponseCode() != 200){
-                String error = parseStream(inputStream);
-                this.response.onErrorResponse(error);
-            }else {
-                String response = parseStream(inputStream);
-                this.response.onResponse(response);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            connection.disconnect();
-        }
+
+        if(STATUS_CODE != 200)
+            this.response.onErrorResponse(inputStream);
+        else
+            this.response.onResponse(inputStream);
     }
 
     private String parseStream(InputStream inputStream) {
