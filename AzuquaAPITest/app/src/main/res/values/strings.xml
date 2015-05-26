@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Azuqua</string>
+    <string name="action_settings">Settings</string>
+    <string name="api_test_cases">Azuqua API test cases :</string>
+    <string name="choose_test_case">Choose test case that you want to run</string>
+    <string name="title_activity_test_case">Azuqua</string>
+    <string name="title_activity_apiconfigurations_list">Azuqua</string>
+
+    <string name="hello_world">Hello world!</string>
+</resources>

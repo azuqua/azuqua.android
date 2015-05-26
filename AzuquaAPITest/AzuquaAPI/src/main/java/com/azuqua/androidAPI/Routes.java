@@ -57,7 +57,7 @@ public class Routes {
     public static final String GALLERY_SEARCH_BY_DESCRIPTION = "/gallery/publishedflos/search";
 
 
-    public void Routes(String baseRoute, Boolean debug){
+    public Routes(String baseRoute, Boolean debug){
         BASE_URL = baseRoute;
         DEBUG_MODE = debug;
     }

@@ -1,1 +1,1 @@
-include ':AzuquaAPI', ':APITest'
+include ':AzuquaAPI'
