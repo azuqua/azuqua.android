@@ -75,3 +75,4 @@ Azuqua azuqua = new Azuqua( ); <br>
                     public void onErrorResponse(String error) {
                       //returns error error on bad request
                     }
+                });                
