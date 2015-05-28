@@ -12,10 +12,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.lang.reflect.Type;
+import java.util.TimeZone;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -29,6 +31,11 @@ public class Azuqua {
     private String accessSecret;
 
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();
+
+    // empty constructor
+    public Azuqua(){
+
+    }
 
     public Azuqua(String accessKey, String accessSecret) {
         this.accessKey = accessKey;
@@ -85,9 +92,10 @@ public class Azuqua {
 
     private String getISOTime() {
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        TimeZone timezone = TimeZone.getTimeZone("UTC");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(timezone);
         String timestamp = df.format(new Date());
-        Logs.info("Time Stamp", timestamp);
 
         return timestamp;
     }
@@ -95,7 +103,13 @@ public class Azuqua {
     public String makeRequest(String verb, String path, String data, AsyncResponse response){
 
         String timestamp = getISOTime();
-        String signedData = signData(data, verb.toLowerCase(), path, timestamp);
+
+        String signedData = null;
+        if (accessKey != null && accessSecret != null) {
+            signedData = signData(data, verb.toLowerCase(), path, timestamp);
+        }
+
+        Log.i("Signed Data",""+signedData);
 
         AzuquaRequest azuquaRequest = new AzuquaRequest(this.accessKey, verb, path, data, signedData, timestamp, response);
         azuquaRequest.execute();
@@ -109,8 +123,9 @@ public class Azuqua {
             @Override
             public void onResponse(String response) {
                 Log.d("Flos ", response);
-                Type collectionType = new TypeToken<Collection<Flo>>(){}.getType();
-                Collection<Flo> flos  = gson.fromJson(response, collectionType);
+                Type collectionType = new TypeToken<Collection<Flo>>() {
+                }.getType();
+                Collection<Flo> flos = gson.fromJson(response, collectionType);
 
                 // give each Flo a reference to this so it can make a request call
                 for (Flo flo : flos) {

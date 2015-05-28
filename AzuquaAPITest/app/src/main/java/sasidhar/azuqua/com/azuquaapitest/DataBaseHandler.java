@@ -31,9 +31,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String KEY_PROTOCOL = "protocol";
     private static final String KEY_HOST = "host";
     private static final String KEY_PORT = "port";
+    private static final String KEY_DEBUG = "debug";
 
     // create table query string
-    private static final String CREATE_API_TABLE = "CREATE TABLE "+TABLE_NAME+" ("+KEY_ID+" INTEGER PRIMARY KEY, "+KEY_NAME+" TEXT, "+KEY_PROTOCOL+" TEXT, "+KEY_HOST+" TEXT, "+KEY_PORT+" INTEGER)";
+    private static final String CREATE_API_TABLE = "CREATE TABLE "+TABLE_NAME+" ("+KEY_ID+" INTEGER PRIMARY KEY, "+KEY_NAME+" TEXT, "+KEY_PROTOCOL+" TEXT, "+KEY_HOST+" TEXT, "+KEY_PORT+" INTEGER, "+KEY_DEBUG+" TEXT)";
 
     // drop table query string
     private static final String DROP_API_TABLE = "DROP TABLE IF EXISTS "+TABLE_NAME;
@@ -67,7 +68,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         values.put(KEY_PROTOCOL, api.getProtocol());
         values.put(KEY_HOST, api.getHost());
         values.put(KEY_PORT, api.getPort());
-
+        values.put(KEY_DEBUG, api.getDebugMode());
         db.insert(TABLE_NAME, null, values);
         db.close();
 
@@ -82,7 +83,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
         }
 
-        APIList api = new APIList(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)));
+        APIList api = new APIList(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)), cursor.getString(5));
 
         cursor.close();
         db.close();
@@ -106,7 +107,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 api.setProtocol(cursor.getString(2));
                 api.setHost(cursor.getString(3));
                 api.setPort(Integer.parseInt(cursor.getString(4)));
-
+                api.setDebugMode(cursor.getString(5));
                 apiLists.add(api);
 
             }while (cursor.moveToNext());
@@ -141,6 +142,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         values.put(KEY_PROTOCOL, api.getProtocol());
         values.put(KEY_HOST, api.getHost());
         values.put(KEY_PORT, api.getPort());
+        values.put(KEY_DEBUG, api.getDebugMode());
 
         int status = db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(api.getID()) });
 

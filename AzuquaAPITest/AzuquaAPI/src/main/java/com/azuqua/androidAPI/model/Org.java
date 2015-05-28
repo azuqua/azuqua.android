@@ -8,15 +8,13 @@ import java.util.ArrayList;
 public class Org {
 
     private String name;
-    private String accessKey;
-    private String accessSecret;
-    private ArrayList<Flo> flos;
+    private String access_key;
+    private String access_secret;
 
-    public Org(String name, String accessKey, String accessSecret, ArrayList<Flo> flos){
+    public Org(String name, String access_key, String access_secret){
         this.name = name;
-        this.accessKey = accessKey;
-        this.accessSecret = accessSecret;
-        this.flos = flos;
+        this.access_key = access_key;
+        this.access_secret = access_secret;
     }
 
 
@@ -29,35 +27,22 @@ public class Org {
         return this.name;
     }
 
-    public void setAccessKey(String accessKey) {
-        this.accessKey = accessKey;
+    public void setaccess_key(String access_key) {
+        this.access_key = access_key;
     }
 
-    public void setAccessSecret(String accessSecret) {
-        this.accessSecret = accessSecret;
+    public void setaccess_secret(String access_secret) {
+        this.access_secret = access_secret;
     }
 
-    public void setFlos(ArrayList<Flo> flos) {
-        this.flos = flos;
+
+    //Get access_key
+    public String getaccess_key(){
+        return this.access_key;
     }
 
-    //Get AccessKey
-    public String getAccessKey(){
-        return this.accessKey;
-    }
-
-    //Get AccessSecret
-    public String getAccessSecret(){
-        return this.accessSecret;
-    }
-
-    //Get Flos
-    public ArrayList<Flo> getFlos(){
-        return this.flos;
-    }
-
-    //Add Flo
-    public void addFlo(Flo flo){
-        this.flos.add(flo);
+    //Get access_secret
+    public String getaccess_secret(){
+        return this.access_secret;
     }
 }

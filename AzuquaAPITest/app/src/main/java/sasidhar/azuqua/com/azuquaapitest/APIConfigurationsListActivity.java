@@ -1,16 +1,22 @@
 package sasidhar.azuqua.com.azuquaapitest;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,6 +45,28 @@ public class APIConfigurationsListActivity extends ActionBarActivity {
         registerForContextMenu(listView);
 
         list = new ArrayList<>();
+
+        createAPIList();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Click", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Long Click", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+    }
+
+    private void createAPIList() {
+        if(list.size() > 0)
+            list.clear();
         apiLists = db.getAllAPIs();
 
         for(APIList api : apiLists)
@@ -46,22 +74,6 @@ public class APIConfigurationsListActivity extends ActionBarActivity {
 
         adapter = new ArrayAdapter(APIConfigurationsListActivity.this, android.R.layout.simple_list_item_single_choice, list);
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"Click", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"Long Click", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
     }
 
     @Override
@@ -73,13 +85,11 @@ public class APIConfigurationsListActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add) {
+            startActivity(new Intent(APIConfigurationsListActivity.this,NewAPIActivity.class));
             return true;
         }
 
@@ -101,7 +111,13 @@ public class APIConfigurationsListActivity extends ActionBarActivity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        Log.i("Item Id : ",info.position+" "+item.getItemId());
+        Log.i("Item Id : ", info.position + " " + item.getItemId());
         return super.onContextItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        createAPIList();
     }
 }

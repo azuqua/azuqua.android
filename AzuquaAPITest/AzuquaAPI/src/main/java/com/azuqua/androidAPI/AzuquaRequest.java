@@ -1,6 +1,7 @@
 package com.azuqua.androidAPI;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -50,6 +51,7 @@ public class AzuquaRequest extends AsyncTask<Void, Void, String> {
         super.onPreExecute();
         try {
             url = new URL(Routes.BASE_URL+this.path);
+            Log.i("URL",url.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -107,7 +109,7 @@ public class AzuquaRequest extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String inputStream) {
         super.onPostExecute(inputStream);
-
+        Log.d("Response From Server ",inputStream);
         if(STATUS_CODE != 200)
             this.response.onErrorResponse(inputStream);
         else

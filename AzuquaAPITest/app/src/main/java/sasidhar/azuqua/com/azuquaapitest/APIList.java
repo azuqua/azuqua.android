@@ -10,29 +10,30 @@ public class APIList {
     String _protocol;
     String _host;
     int _port;
+    String _debugMode;
 
     public APIList(){
 
     }
 
 
-    public APIList(int id, String name, String protocol, String host, int port){
+    public APIList(int id, String name, String protocol, String host, int port, String debugMode){
 
         this._id = id;
         this._name = name;
         this._protocol = protocol;
         this._host = host;
         this._port = port;
-
+        this._debugMode = debugMode;
     }
 
-    public APIList(String name, String protocol, String host, int port){
+    public APIList(String name, String protocol, String host, int port, String debugMode){
 
         this._name = name;
         this._protocol = protocol;
         this._host = host;
         this._port = port;
-
+        this._debugMode = debugMode;
     }
 
     public int getID() {
@@ -77,5 +78,13 @@ public class APIList {
 
     public String getAPI(){
         return this._protocol+"://"+this._host+":"+this._port;
+    }
+
+    public String getDebugMode() {
+        return _debugMode;
+    }
+
+    public void setDebugMode(String debugMode) {
+        this._debugMode = debugMode;
     }
 }

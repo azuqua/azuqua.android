@@ -6,8 +6,8 @@ package com.azuqua.androidAPI;
 public class Routes {
 
     // BASE URL
-    public static String BASE_URL = "https://api.azuqua.com";
-    public static boolean DEBUG_MODE = false;
+    public static String BASE_URL = "http://devapi2.azuqua.com";
+    public static boolean DEBUG_MODE = true;
 
     /* Org Routes */
 
