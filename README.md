@@ -6,7 +6,7 @@ The android client for Azuqua
 Azuqua azuqua = new Azuqua( ); <br>
 <h4> 2. Get Orgs</h4>
 
-                azuqua.login(username, password, new AzuquaOrgRequest() {
+                azuqua.login("username@email.com", "password", new AzuquaOrgRequest() {
                     @Override
                     public void onResponse(Collection<Org> orgsCollection) {
                       //returns collection of orgs on successfull request
