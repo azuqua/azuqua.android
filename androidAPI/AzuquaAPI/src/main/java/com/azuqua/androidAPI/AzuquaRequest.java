@@ -1,5 +1,6 @@
 package com.azuqua.androidAPI;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -21,6 +22,8 @@ import javax.net.ssl.HttpsURLConnection;
 public class AzuquaRequest extends AsyncTask<Void, Void, String> {
 
     public AsyncResponse response;
+
+    private SharedPreferences sharedPreferences;
 
     private String accessKey;
     private String path;
@@ -49,7 +52,7 @@ public class AzuquaRequest extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         try {
-            url = new URL(Routes.BASE_URL+this.path);
+            url = new URL(Routes.getBaseURL()+this.path);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -58,7 +61,11 @@ public class AzuquaRequest extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         try {
-            connection = Routes.DEBUG_MODE ? (HttpURLConnection) url.openConnection() : (HttpsURLConnection) url.openConnection();
+            if(Routes.getProtocol().equalsIgnoreCase("http")){
+                connection = (HttpURLConnection) url.openConnection();
+            }else{
+                connection = (HttpsURLConnection) url.openConnection();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

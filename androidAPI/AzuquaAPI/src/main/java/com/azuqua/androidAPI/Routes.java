@@ -1,13 +1,20 @@
 package com.azuqua.androidAPI;
 
+import android.util.Log;
+
 /**
  * Created by BALASASiDHAR on 25-May-15.
  */
 public class Routes {
 
     // BASE URL
-    public static String BASE_URL = "https://api.azuqua.com";
+    public static String BASE_URL = "https://alphaapi.azuqua.com";
     public static boolean DEBUG_MODE = false;
+
+    public static String protocol = "https";
+    public static String host = "alphaapi.azuqua.com";
+    public static int port = 443;
+
 
     /* Org Routes */
 
@@ -56,11 +63,45 @@ public class Routes {
     // Gallery search by description
     public static final String GALLERY_SEARCH_BY_DESCRIPTION = "/gallery/publishedflos/search";
 
+    public static String getBaseURL() {
+        BASE_URL = protocol+"://"+host+":"+port;
+        Log.i("BASE_URL", BASE_URL);
+        return BASE_URL;
+    }
+
 
     public void Routes(String baseRoute, Boolean debug){
         BASE_URL = baseRoute;
         DEBUG_MODE = debug;
     }
 
+    public void Routes(String protocol, String host, int port){
+        this.protocol = protocol;
+        this.host = host;
+        this.port = port;
+    }
 
+    public static void setProtocol(String protocol) {
+        Routes.protocol = protocol;
+    }
+
+    public static void setHost(String host) {
+        Routes.host = host;
+    }
+
+    public static void setPort(int port) {
+        Routes.port = port;
+    }
+
+    public static String getProtocol() {
+        return protocol;
+    }
+
+    public static String getHost() {
+        return host;
+    }
+
+    public static int getPort() {
+        return port;
+    }
 }
