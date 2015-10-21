@@ -1,7 +1,7 @@
-package com.azuqua.androidAPI;
+package org.azuqua.android.api;
 
 /**
- * Created by BALASASiDHAR on 25-Apr-15.
+ * Created by sasidhar on 14-Oct-15.
  */
 public class AzuquaException extends Exception{
     private static final long serialVersionUID = 1917276002444057363L;

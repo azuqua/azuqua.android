@@ -1,4 +1,4 @@
-package com.azuqua.androidAPI;
+package org.azuqua.android.api;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
