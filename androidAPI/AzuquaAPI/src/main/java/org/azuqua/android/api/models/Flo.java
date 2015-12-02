@@ -1,12 +1,18 @@
 package org.azuqua.android.api.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.Gson;
+
 import org.azuqua.android.api.Azuqua;
 import org.azuqua.android.api.callbacks.AsyncRequest;
 
 /**
  * Created by sasidhar on 14-Oct-15.
  */
-public class Flo {
+public class Flo implements Parcelable {
+
     private int id;
     private int user_id;
     private int org_id;
@@ -24,12 +30,47 @@ public class Flo {
     private String created;
     private String last_run_success;
     private String last_run_fail;
+    private User user;
+    private static Gson gson = new Gson();
 
     public Flo() {
         //empty constructor
     }
 
-    public Flo(int id, int user_id, int org_id, String alias, String version, String name, String module, boolean active, boolean published, String security_level, String description, long execution_count, String last_run, String updated, String created, String last_run_success, String last_run_fail) {
+    protected Flo(Parcel in) {
+        id = in.readInt();
+        user_id = in.readInt();
+        org_id = in.readInt();
+        alias = in.readString();
+        version = in.readString();
+        name = in.readString();
+        module = in.readString();
+        active = in.readByte() != 0;
+        published = in.readByte() != 0;
+        security_level = in.readString();
+        description = in.readString();
+        execution_count = in.readLong();
+        last_run = in.readString();
+        updated = in.readString();
+        created = in.readString();
+        last_run_success = in.readString();
+        last_run_fail = in.readString();
+        user = gson.fromJson(in.readString(), User.class);
+    }
+
+    public static final Creator<Flo> CREATOR = new Creator<Flo>() {
+        @Override
+        public Flo createFromParcel(Parcel in) {
+            return new Flo(in);
+        }
+
+        @Override
+        public Flo[] newArray(int size) {
+            return new Flo[size];
+        }
+    };
+
+    public Flo(int id, int user_id, int org_id, String alias, String version, String name, String module, boolean active, boolean published, String security_level, String description, long execution_count, String last_run, String updated, String created, String last_run_success, String last_run_fail, User user) {
         this.id = id;
         this.user_id = user_id;
         this.org_id = org_id;
@@ -47,6 +88,7 @@ public class Flo {
         this.created = created;
         this.last_run_success = last_run_success;
         this.last_run_fail = last_run_fail;
+        this.user = user;
     }
 
     public int getId() {
@@ -185,6 +227,14 @@ public class Flo {
         this.last_run_fail = last_run_fail;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
     public void getInputs(Azuqua azuqua, String accessKey, String accessSecret, AsyncRequest asyncRequest) {
         azuqua.getFloInputs(this.alias, accessKey, accessSecret, asyncRequest);
     }
@@ -193,4 +243,58 @@ public class Flo {
         azuqua.invokeFlo(this.alias, data, accessKey, accessSecret, asyncRequest);
     }
 
+    public void toggleState(Azuqua azuqua, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+        if (this.isActive()) {
+            azuqua.disableFlo(this.alias, accessKey, accessSecret, new AsyncRequest() {
+                @Override
+                public void onResponse(String response) {
+                    asyncRequest.onResponse(response);
+                }
+
+                @Override
+                public void onError(String error) {
+                    asyncRequest.onError(error);
+                }
+            });
+        } else {
+            azuqua.enableFlo(this.alias, accessKey, accessSecret, new AsyncRequest() {
+                @Override
+                public void onResponse(String response) {
+                    asyncRequest.onResponse(response);
+                }
+
+                @Override
+                public void onError(String error) {
+                    asyncRequest.onError(error);
+                }
+            });
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(user_id);
+        dest.writeInt(org_id);
+        dest.writeString(alias);
+        dest.writeString(version);
+        dest.writeString(name);
+        dest.writeString(module);
+        dest.writeByte((byte) (active ? 1 : 0));
+        dest.writeByte((byte) (published ? 1 : 0));
+        dest.writeString(security_level);
+        dest.writeString(description);
+        dest.writeLong(execution_count);
+        dest.writeString(last_run);
+        dest.writeString(updated);
+        dest.writeString(created);
+        dest.writeString(last_run_success);
+        dest.writeString(last_run_fail);
+        dest.writeString(gson.toJson(user).toString());
+    }
 }

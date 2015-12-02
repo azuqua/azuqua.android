@@ -1,7 +1,6 @@
 package org.azuqua.android.api;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
@@ -10,12 +9,10 @@ import com.google.gson.reflect.TypeToken;
 
 import org.azuqua.android.api.callbacks.AllFlosRequest;
 import org.azuqua.android.api.callbacks.AsyncRequest;
-import org.azuqua.android.api.callbacks.OrgListRequest;
+import org.azuqua.android.api.callbacks.LoginRequest;
 import org.azuqua.android.api.models.Flo;
 import org.azuqua.android.api.models.LoginInfo;
-import org.azuqua.android.api.models.Org;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.azuqua.android.api.models.User;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
@@ -24,7 +21,6 @@ import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -40,27 +36,22 @@ public class Azuqua {
 
     private Gson gson = new Gson();
 
-    private String host = "alphapi.azuqua.com";
+    private String host = "api.azuqua.com";
     private String protocol = "https";
     private int port = 443;
 
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    public void login(String email, String password, final OrgListRequest orgListRequest) {
-        String loginInfo = gson.toJson(new LoginInfo(email, password, "Azuqua"));
+    public void login(String email, String password, final LoginRequest orgListRequest) {
+        String loginInfo = gson.toJson(new LoginInfo(email, password));
         RequestHandler requestHandler = new RequestHandler("POST", Routes.ORG_LOGIN, loginInfo, getISOTime(), new AsyncRequest() {
             @Override
             public void onResponse(String response) {
                 try {
-
-                    JSONObject jsonObject = new JSONObject(response);
-                    jsonObject = jsonObject.getJSONObject("data");
-                    String str = jsonObject.getString("associated_orgs");
-                    Log.d("ORGS", str.toString());
-                    Type collectionType = new TypeToken<List<Org>>() {
+                    Type collectionType = new TypeToken<User>() {
                     }.getType();
-                    List<Org> orgs = gson.fromJson(str, collectionType);
-                    orgListRequest.onResponse(orgs);
+                    User user = gson.fromJson(response, collectionType);
+                    orgListRequest.onResponse(user);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -84,11 +75,11 @@ public class Azuqua {
                 }.getType();
                 List<Flo> floList = gson.fromJson(response, collectionType);
 
-                // filter only HTTP FLOs
-                List<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
+                // filter only HTTP & AzuquaForm FLOs
+                ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
                     @Override
                     public boolean apply(Flo flo) {
-                        return flo.isPublished();
+                        return flo.getModule().equals("http") | flo.getModule().equals("azuquaforms");
                     }
                 }));
 
@@ -141,6 +132,43 @@ public class Azuqua {
         requestHandler.execute();
     }
 
+    public void enableFlo(String alias, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+        String data = "";
+        String timestamp = getISOTime();
+        String route = Routes.FLO_ENABLE.replace(":alias", alias);
+        String signedData = signData(data, "get", route, accessSecret, timestamp);
+        RequestHandler requestHandler = new RequestHandler("GET", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
+            @Override
+            public void onResponse(String response) {
+                asyncRequest.onResponse(response);
+            }
+
+            @Override
+            public void onError(String error) {
+                asyncRequest.onError(error);
+            }
+        });
+        requestHandler.execute();
+    }
+
+    public void disableFlo(String alias, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+        String data = "";
+        String timestamp = getISOTime();
+        String route = Routes.FLO_DISABLE.replace(":alias", alias);
+        String signedData = signData(data, "get", route, accessSecret, timestamp);
+        RequestHandler requestHandler = new RequestHandler("GET", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
+            @Override
+            public void onResponse(String response) {
+                asyncRequest.onResponse(response);
+            }
+
+            @Override
+            public void onError(String error) {
+                asyncRequest.onError(error);
+            }
+        });
+        requestHandler.execute();
+    }
 
     private String getISOTime() {
 

@@ -9,13 +9,13 @@ public class Routes {
      * API Config
      */
     private static String protocol = "https";
-    private static String host = "alphaapi.azuqua.com";
+    private static String host = "api.azuqua.com";
     private static int port = 443;
 
     /**
      * ORG
      */
-    public static final String ORG_LOGIN = "/org/login";
+    public static final String ORG_LOGIN = "/login";
     public static final String ORG_FLOS = "/org/flos";
 
     /**
