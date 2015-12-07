@@ -243,34 +243,6 @@ public class Flo implements Parcelable {
         azuqua.invokeFlo(this.alias, data, accessKey, accessSecret, asyncRequest);
     }
 
-    public void toggleState(Azuqua azuqua, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
-        if (this.isActive()) {
-            azuqua.disableFlo(this.alias, accessKey, accessSecret, new AsyncRequest() {
-                @Override
-                public void onResponse(String response) {
-                    asyncRequest.onResponse(response);
-                }
-
-                @Override
-                public void onError(String error) {
-                    asyncRequest.onError(error);
-                }
-            });
-        } else {
-            azuqua.enableFlo(this.alias, accessKey, accessSecret, new AsyncRequest() {
-                @Override
-                public void onResponse(String response) {
-                    asyncRequest.onResponse(response);
-                }
-
-                @Override
-                public void onError(String error) {
-                    asyncRequest.onError(error);
-                }
-            });
-        }
-    }
-
     @Override
     public int describeContents() {
         return 0;

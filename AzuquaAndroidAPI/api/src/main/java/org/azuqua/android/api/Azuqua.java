@@ -132,44 +132,6 @@ public class Azuqua {
         requestHandler.execute();
     }
 
-    public void enableFlo(String alias, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
-        String data = "";
-        String timestamp = getISOTime();
-        String route = Routes.FLO_ENABLE.replace(":alias", alias);
-        String signedData = signData(data, "get", route, accessSecret, timestamp);
-        RequestHandler requestHandler = new RequestHandler("GET", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
-            @Override
-            public void onResponse(String response) {
-                asyncRequest.onResponse(response);
-            }
-
-            @Override
-            public void onError(String error) {
-                asyncRequest.onError(error);
-            }
-        });
-        requestHandler.execute();
-    }
-
-    public void disableFlo(String alias, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
-        String data = "";
-        String timestamp = getISOTime();
-        String route = Routes.FLO_DISABLE.replace(":alias", alias);
-        String signedData = signData(data, "get", route, accessSecret, timestamp);
-        RequestHandler requestHandler = new RequestHandler("GET", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
-            @Override
-            public void onResponse(String response) {
-                asyncRequest.onResponse(response);
-            }
-
-            @Override
-            public void onError(String error) {
-                asyncRequest.onError(error);
-            }
-        });
-        requestHandler.execute();
-    }
-
     private String getISOTime() {
 
         TimeZone timezone = TimeZone.getTimeZone("UTC");
