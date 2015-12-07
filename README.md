@@ -1,7 +1,7 @@
 # azuqua.android
 The android client for Azuqua
 
-<h3> Step by step guide to implement the azuqua.android client. <h3>
+<h3> Step by step guide to implement the azuqua.android client. </h3>
 
 maven repo : 
 
