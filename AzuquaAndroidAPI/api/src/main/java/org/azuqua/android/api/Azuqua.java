@@ -79,7 +79,7 @@ public class Azuqua {
                 ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
                     @Override
                     public boolean apply(Flo flo) {
-                        return flo.getModule().equals("http") | flo.getModule().equals("azuquaforms");
+                        return flo.getModule().equals("http") | flo.getModule().equals("azuquaforms") | flo.getModule().equals("azuquamobile");
                     }
                 }));
 
