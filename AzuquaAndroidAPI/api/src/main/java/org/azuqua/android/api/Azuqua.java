@@ -1,6 +1,7 @@
 package org.azuqua.android.api;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
@@ -114,9 +115,12 @@ public class Azuqua {
         requestHandler.execute();
     }
 
-    public void invokeFlo(String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+    public void invokeFlo(Boolean isMonitor, String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+        Log.d("access key", accessKey);
+        Log.d("access secret", accessSecret);
+
         String timestamp = getISOTime();
-        String route = Routes.FLO_INVOKE.replace(":alias", alias);
+        String route = isMonitor ? Routes.FLO_INJECT.replace(":alias", alias) : Routes.FLO_INVOKE.replace(":alias", alias);
         String signedData = signData(data, "post", route, accessSecret, timestamp);
         RequestHandler requestHandler = new RequestHandler("POST", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
             @Override

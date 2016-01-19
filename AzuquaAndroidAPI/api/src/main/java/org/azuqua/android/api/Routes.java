@@ -23,6 +23,7 @@ public class Routes {
      */
     public static final String FLO_READ = "/flo/:alias/read";
     public static final String FLO_INVOKE = "/flo/:alias/invoke";
+    public static final String FLO_INJECT = "/flo/:alias/inject";
     public static final String FLO_ENABLE = "/flo/:alias/enable";
     public static final String FLO_DISABLE = "/flo/:alias/disable";
     public static final String FLO_EXECUTIONS_COUNT = "/flo/:alias/executions";

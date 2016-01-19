@@ -2,6 +2,7 @@ package org.azuqua.android.api.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -31,6 +32,7 @@ public class Flo implements Parcelable {
     private String last_run_success;
     private String last_run_fail;
     private User user;
+    private Blob[] blob;
     private static Gson gson = new Gson();
 
     public Flo() {
@@ -56,6 +58,7 @@ public class Flo implements Parcelable {
         last_run_success = in.readString();
         last_run_fail = in.readString();
         user = gson.fromJson(in.readString(), User.class);
+        blob = gson.fromJson(in.readString(), Blob[].class);
     }
 
     public static final Creator<Flo> CREATOR = new Creator<Flo>() {
@@ -70,7 +73,7 @@ public class Flo implements Parcelable {
         }
     };
 
-    public Flo(int id, int user_id, int org_id, String alias, String version, String name, String module, boolean active, boolean published, String security_level, String description, long execution_count, String last_run, String updated, String created, String last_run_success, String last_run_fail, User user) {
+    public Flo(int id, int user_id, int org_id, String alias, String version, String name, String module, boolean active, boolean published, String security_level, String description, long execution_count, String last_run, String updated, String created, String last_run_success, String last_run_fail, User user, Blob[] blob) {
         this.id = id;
         this.user_id = user_id;
         this.org_id = org_id;
@@ -89,6 +92,7 @@ public class Flo implements Parcelable {
         this.last_run_success = last_run_success;
         this.last_run_fail = last_run_fail;
         this.user = user;
+        this.blob = blob;
     }
 
     public int getId() {
@@ -235,12 +239,23 @@ public class Flo implements Parcelable {
         return user;
     }
 
+    public void setBlob(Blob[] blob) {
+        this.blob = blob;
+    }
+
+    public Blob[] getBlob() {
+        return blob;
+    }
+
     public void getInputs(Azuqua azuqua, String accessKey, String accessSecret, AsyncRequest asyncRequest) {
         azuqua.getFloInputs(this.alias, accessKey, accessSecret, asyncRequest);
     }
 
     public void invoke(Azuqua azuqua, String data, String accessKey, String accessSecret, AsyncRequest asyncRequest) {
-        azuqua.invokeFlo(this.alias, data, accessKey, accessSecret, asyncRequest);
+        Log.d("access key", accessKey);
+        Log.d("access secret", accessSecret);
+        Boolean isMonitor = this.module.equals("azuquamobile") ? true : false;
+        azuqua.invokeFlo(isMonitor, this.alias, data, accessKey, accessSecret, asyncRequest);
     }
 
     @Override
@@ -268,5 +283,6 @@ public class Flo implements Parcelable {
         dest.writeString(last_run_success);
         dest.writeString(last_run_fail);
         dest.writeString(gson.toJson(user).toString());
+        dest.writeString(gson.toJson(blob).toString());
     }
 }
