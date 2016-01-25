@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.azuqua.android.api</groupId>
+  <artifactId>api</artifactId>
+  <version>0.0.12</version>
+  <packaging>aar</packaging>
+  <name>Azuqua Android API</name>
+  <description>Azuqua Android API</description>
+  <url>https://github.com/azuqua/azuqua.android</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>sasidhar678</id>
+      <name>Bala Sasidhar Kola</name>
+      <email>sasidhar@azuqua.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>https://github.com/azuqua/azuqua.android.git</connection>
+    <developerConnection>https://github.com/azuqua/azuqua.android.git</developerConnection>
+    <url>https://github.com/azuqua/azuqua.android</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>appcompat-v7</artifactId>
+      <version>23.1.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>19.0-rc2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>
