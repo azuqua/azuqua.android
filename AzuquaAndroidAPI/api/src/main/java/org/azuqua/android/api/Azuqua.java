@@ -1,8 +1,5 @@
 package org.azuqua.android.api;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.gson.Gson;
@@ -36,10 +33,6 @@ import javax.crypto.spec.SecretKeySpec;
 public class Azuqua {
 
     private Gson gson = new Gson();
-
-    private String host = "api.azuqua.com";
-    private String protocol = "https";
-    private int port = 443;
 
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
@@ -116,8 +109,6 @@ public class Azuqua {
     }
 
     public void invokeFlo(Boolean isMonitor, String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
-        Log.d("access key", accessKey);
-        Log.d("access secret", accessSecret);
 
         String timestamp = getISOTime();
         String route = isMonitor ? Routes.FLO_INJECT.replace(":alias", alias) : Routes.FLO_INVOKE.replace(":alias", alias);
@@ -170,7 +161,7 @@ public class Azuqua {
 
         String meta = verb + ":" + path + ":" + timestamp;
         String dataToDigest = meta + data;
-        Log.d(method, "data to digest " + dataToDigest);
+//        Log.d(method, "data to digest " + dataToDigest);
 
         byte[] digest = new byte[0];
         try {
@@ -179,7 +170,7 @@ public class Azuqua {
             e.printStackTrace();
         }
         String digestString = bytesToHex(digest).toLowerCase();
-        Log.d(method, "digested string " + digestString);
+//        Log.d(method, "digested string " + digestString);
 
         return digestString;
     }

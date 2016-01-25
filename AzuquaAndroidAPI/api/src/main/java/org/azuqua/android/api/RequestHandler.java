@@ -1,7 +1,6 @@
 package org.azuqua.android.api;
 
 import android.os.AsyncTask;
-import android.util.JsonReader;
 import android.util.Log;
 
 import org.azuqua.android.api.callbacks.AsyncRequest;
@@ -15,7 +14,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Scanner;
+import java.util.List;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -101,6 +101,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
             if (this.requestMethod.equalsIgnoreCase("post")) {
                 dataOutputStream = new DataOutputStream(connection.getOutputStream());
                 dataOutputStream.writeBytes(this.payLoadData);
+                Log.d("Request Handler", this.payLoadData);
                 dataOutputStream.flush();
                 dataOutputStream.close();
             }
@@ -111,6 +112,11 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
                 response = parseResponse(connection.getInputStream());
             else
                 response = parseResponse(((HttpURLConnection) connection).getErrorStream());
+
+            for (Map.Entry<String, List<String>> header : connection.getHeaderFields().entrySet()) {
+                Log.d("logConnection", header.getKey() + "=" + header.getValue());
+            }
+
             return response;
 
         } catch (IOException e) {

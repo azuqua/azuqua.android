@@ -2,7 +2,6 @@ package org.azuqua.android.api.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -252,8 +251,6 @@ public class Flo implements Parcelable {
     }
 
     public void invoke(Azuqua azuqua, String data, String accessKey, String accessSecret, AsyncRequest asyncRequest) {
-        Log.d("access key", accessKey);
-        Log.d("access secret", accessSecret);
         Boolean isMonitor = this.module.equals("azuquamobile") ? true : false;
         azuqua.invokeFlo(isMonitor, this.alias, data, accessKey, accessSecret, asyncRequest);
     }
