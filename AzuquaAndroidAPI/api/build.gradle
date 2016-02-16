@@ -12,7 +12,7 @@ ext {
     gitUrl = 'https://github.com/azuqua/azuqua.android.git'
 
     libraryDescription = 'Azuqua Android API'
-    libraryVersion = '0.0.12'
+    libraryVersion = '0.0.13'
 
     developerId = 'sasidhar678'
     developerName = 'Bala Sasidhar Kola'
@@ -32,8 +32,8 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.1"
+        versionCode 1
+        versionName "1.0"
     }
     buildTypes {
         release {

@@ -69,11 +69,11 @@ public class Azuqua {
                 }.getType();
                 List<Flo> floList = gson.fromJson(response, collectionType);
 
-                // filter only HTTP & AzuquaForm FLOs
+                // Filter Azuqua Mobile Channel's FLO and Active
                 ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
                     @Override
                     public boolean apply(Flo flo) {
-                        return flo.getModule().equals("http") | flo.getModule().equals("azuquaforms") | flo.getModule().equals("azuquamobile");
+                        return flo.getModule().equals("azuquamobile") && flo.isActive();
                     }
                 }));
 
