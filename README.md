@@ -7,4 +7,4 @@ The android client for Azuqua
 
 Add this to dependencies section in build.gradle (app level)
 
-    compile 'org.azuqua.android.api:api:0.0.1'
+    compile 'org.azuqua.android.api:api:0.0.13'
