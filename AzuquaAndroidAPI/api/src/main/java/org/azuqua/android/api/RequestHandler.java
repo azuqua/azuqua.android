@@ -73,7 +73,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-
+        IOException ioException;
         try {
 
             connection = Routes.getProtocol().equals("https") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
@@ -101,7 +101,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
             if (this.requestMethod.equalsIgnoreCase("post")) {
                 dataOutputStream = new DataOutputStream(connection.getOutputStream());
                 dataOutputStream.writeBytes(this.payLoadData);
-                Log.d("Request Handler", this.payLoadData);
+//                Log.d("Request Handler", this.payLoadData);
                 dataOutputStream.flush();
                 dataOutputStream.close();
             }
@@ -114,17 +114,18 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
                 response = parseResponse(((HttpURLConnection) connection).getErrorStream());
 
             for (Map.Entry<String, List<String>> header : connection.getHeaderFields().entrySet()) {
-                Log.d("logConnection", header.getKey() + "=" + header.getValue());
+//                Log.d("logConnection", header.getKey() + "=" + header.getValue());
             }
 
             return response;
 
         } catch (IOException e) {
+            ioException = e;
             e.printStackTrace();
         } finally {
             ((HttpURLConnection) connection).disconnect();
         }
-        return null;
+        return ioException.toString();
     }
 
     @Override

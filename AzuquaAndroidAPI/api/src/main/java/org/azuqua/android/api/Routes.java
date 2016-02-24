@@ -9,7 +9,7 @@ public class Routes {
      * API Config
      */
     private static String protocol = "https";
-    private static String host = "alphaapi.azuqua.com";
+    private static String host = "api.azuqua.com";
     private static int port = 443;
 
     /**
