@@ -11,6 +11,8 @@ import org.azuqua.android.api.callbacks.LoginRequest;
 import org.azuqua.android.api.models.Flo;
 import org.azuqua.android.api.models.LoginInfo;
 import org.azuqua.android.api.models.User;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
@@ -65,19 +67,24 @@ public class Azuqua {
         RequestHandler requestHandler = new RequestHandler("GET", Routes.ORG_FLOS, "", signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
-                Type collectionType = new TypeToken<List<Flo>>() {
-                }.getType();
-                List<Flo> floList = gson.fromJson(response, collectionType);
+                try {
+                    Type collectionType = new TypeToken<List<Flo>>() {
+                    }.getType();
+                    List<Flo> floList = gson.fromJson(response, collectionType);
 
-                // filter only HTTP & AzuquaForm FLOs
-                ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
-                    @Override
-                    public boolean apply(Flo flo) {
-                        return flo.getModule().equals("http") | flo.getModule().equals("azuquaforms") | flo.getModule().equals("azuquamobile");
-                    }
-                }));
+                    // Filter Azuqua Mobile Channel's FLO and Active
+                    ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
+                        @Override
+                        public boolean apply(Flo flo) {
+                            return flo.getModule() != null && flo.getModule().equals("azuquamobile") && flo.isActive();
+                        }
+                    }));
 
-                allFlosRequest.onResponse(httpFloList);
+                    allFlosRequest.onResponse(httpFloList);
+                } catch (Exception e) {
+                    allFlosRequest.onError(e.toString());
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -116,7 +123,27 @@ public class Azuqua {
         RequestHandler requestHandler = new RequestHandler("POST", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
-                asyncRequest.onResponse(response);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    if (jsonObject.has("error")) {
+                        asyncRequest.onError(response);
+                    } else if (jsonObject.has("data")) {
+                        String dataString = jsonObject.getString("data");
+                        JSONObject dataObj = new JSONObject(dataString);
+
+                        if (dataObj.has("error")) {
+                            asyncRequest.onError(dataString);
+                        } else {
+                            asyncRequest.onResponse(response);
+                        }
+                    } else {
+                        asyncRequest.onResponse(response);
+                    }
+                } catch (JSONException e) {
+                    asyncRequest.onError(e.toString());
+                    e.printStackTrace();
+                }
             }
 
             @Override
