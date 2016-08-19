@@ -6,37 +6,36 @@ import java.util.List;
  * Created by sasidhar on 29-Oct-15.
  */
 public class User {
-    private int id;
+    private long id;
     private String email;
     private String company;
     private String first_name;
     private String middle_name;
     private String last_name;
-    private String access_secret;
     private String access_key;
+    private String access_secret;
     private List<Org> orgs;
 
     public User() {
-        //empty constructor
     }
 
-    public User(int id, String email, String company, String first_name, String middle_name, String last_name, String access_key, String access_secret, List<Org> orgs) {
+    public User(long id, String email, String company, String first_name, String middle_name, String last_name, String access_secret, String access_key, List<Org> orgs) {
         this.id = id;
         this.email = email;
         this.company = company;
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
-        this.access_key = access_key;
         this.access_secret = access_secret;
+        this.access_key = access_key;
         this.orgs = orgs;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -88,19 +87,19 @@ public class User {
         this.access_secret = access_secret;
     }
 
-    public String getAccess_key() {
-        return access_key;
-    }
-
-    public void setAccess_key(String access_key) {
-        this.access_key = access_key;
+    public List<Org> getOrgs() {
+        return orgs;
     }
 
     public void setOrgs(List<Org> orgs) {
         this.orgs = orgs;
     }
 
-    public List<Org> getOrgs() {
-        return orgs;
+    public void setAccess_key(String access_key) {
+        this.access_key = access_key;
+    }
+
+    public String getAccess_key() {
+        return access_key;
     }
 }

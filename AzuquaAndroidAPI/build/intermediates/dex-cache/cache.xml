@@ -2,32 +2,60 @@
 <items version="2" >
 
     <item
-        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\libs\internal_impl-24.1.1.jar"
         jumboMode="false"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_160e21806fe4fcbe2b20c34d1bbde421f69a17ae.jar" />
+        revision="23.0.3"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\internal_impl-24.1.1_c8c705ea44b366e1b963d0c744adbf8a1cf2e9a6.jar" />
     </item>
     <item
-        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.1\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_8501ad771c79d4b0113f080d392ac599a39fb53e.jar" />
+        revision="23.0.3"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.1.1_1ade65d5b9d32f23a8b83e62668c052bf3275943.jar" />
     </item>
     <item
-        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jar="C:\Users\SASi\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar"
         jumboMode="false"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_685f78234f5a128eaf3f186fa9696e625468a434.jar" />
+        revision="23.0.3"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\support-annotations-24.1.1_5439419e65904a3797ace3f3bbcd263b3c4cff66.jar" />
     </item>
     <item
-        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\org.azuqua.android.api\api\0.0.18\jars\classes.jar"
         jumboMode="false"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_4c2855bd96fca92b10fb9f390fba8fd449571198.jar" />
+        revision="23.0.3"
+        sha1="d78ebc0392b3b18c4de6d2bf0dd47d3c3f97127e">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\org.azuqua.android.api-api-0.0.18_faa06df425e255081ebe8dc5e1346f3328550b72.jar" />
+    </item>
+    <item
+        jar="C:\Users\SASi\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\gson-2.4_92669a0b40299f5562970f5f2691b50f17f26d46.jar" />
+    </item>
+    <item
+        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.1.1_009bfaeb956a69f3321d110c066c4c83a3bc87e4.jar" />
+    </item>
+    <item
+        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.1.1_8c3cc4d33437449022164b17ac6a787a5244c512.jar" />
+    </item>
+    <item
+        jar="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="C:\Users\SASi\Documents\GitHub\azuqua.android\AzuquaAndroidAPI\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.1.1_d643a00540f6ef11cac5af496d760856dacacf38.jar" />
     </item>
 
 </items>

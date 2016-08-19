@@ -23,7 +23,7 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by sasidhar on 07-Oct-15.
  */
 
-public class RequestHandler extends AsyncTask<String, Void, String> {
+class RequestHandler extends AsyncTask<String, Void, String> {
 
     private String requestMethod = null;
     private String requestPath = null;
@@ -43,7 +43,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
         // empty constructor
     }
 
-    public RequestHandler(String requestMethod, String requestPath, String payLoadData, String time_stamp, AsyncRequest asyncResponse) {
+    RequestHandler(String requestMethod, String requestPath, String payLoadData, String time_stamp, AsyncRequest asyncResponse) {
         this.requestMethod = requestMethod;
         this.requestPath = requestPath;
         this.payLoadData = payLoadData;
@@ -51,7 +51,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
         this.asyncResponse = asyncResponse;
     }
 
-    public RequestHandler(String requestMethod, String requestPath, String payLoadData, String signedData, String accessKey, String time_stamp, AsyncRequest asyncResponse) {
+    RequestHandler(String requestMethod, String requestPath, String payLoadData, String signedData, String accessKey, String time_stamp, AsyncRequest asyncResponse) {
         this.requestMethod = requestMethod;
         this.requestPath = requestPath;
         this.payLoadData = payLoadData;
@@ -139,7 +139,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
     }
 
     private String parseResponse(InputStream inputStream) {
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         try {
