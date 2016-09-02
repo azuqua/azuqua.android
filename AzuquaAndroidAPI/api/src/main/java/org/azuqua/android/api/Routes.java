@@ -15,19 +15,19 @@ public class Routes {
     /**
      * ORG
      */
-    public static final String ORG_LOGIN = "/login";
-    public static final String ORG_FLOS = "/org/flos";
+    static final String ORG_LOGIN = "/login";
+    static final String ORG_FLOS = "/org/flos?type=mobile";
 
     /**
      * FLO
      */
     public static final String FLO_READ = "/flo/:alias/read";
-    public static final String FLO_INVOKE = "/flo/:alias/invoke";
-    public static final String FLO_INJECT = "/flo/:alias/inject";
+    static final String FLO_INVOKE = "/flo/:alias/invoke";
+    static final String FLO_INJECT = "/flo/:alias/inject";
     public static final String FLO_ENABLE = "/flo/:alias/enable";
     public static final String FLO_DISABLE = "/flo/:alias/disable";
     public static final String FLO_EXECUTIONS_COUNT = "/flo/:alias/executions";
-    public static final String FLO_INPUTS = "/flo/:alias/inputs";
+    static final String FLO_INPUTS = "/flo/:alias/inputs";
 
     /**
      * STORE
@@ -45,9 +45,9 @@ public class Routes {
     }
 
     public Routes(String protocol, String host, int port) {
-        this.protocol = protocol;
-        this.host = host;
-        this.port = port;
+        Routes.protocol = protocol;
+        Routes.host = host;
+        Routes.port = port;
     }
 
     public static void setProtocol(String protocol) {
@@ -62,15 +62,15 @@ public class Routes {
         Routes.host = host;
     }
 
-    public static String getProtocol() {
+    static String getProtocol() {
         return protocol;
     }
 
-    public static String getHost() {
+    static String getHost() {
         return host;
     }
 
-    public static int getPort() {
+    static int getPort() {
         return port;
     }
 }

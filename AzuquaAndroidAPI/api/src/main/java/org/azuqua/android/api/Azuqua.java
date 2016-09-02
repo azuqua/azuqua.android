@@ -1,7 +1,5 @@
 package org.azuqua.android.api;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -23,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import javax.crypto.Mac;
@@ -72,15 +71,16 @@ public class Azuqua {
                     }.getType();
                     List<Flo> floList = gson.fromJson(response, collectionType);
 
-                    // Filter Azuqua Mobile Channel's FLO and Active
-                    ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
-                        @Override
-                        public boolean apply(Flo flo) {
-                            return flo.getModule() != null && flo.getModule().equals("azuquamobile") && flo.isActive();
-                        }
-                    }));
+                    ArrayList<Flo> activeFlos = new ArrayList<>();
+                    activeFlos.clear();
 
-                    allFlosRequest.onResponse(httpFloList);
+                    for (Flo flo : floList) {
+                        if (flo.isActive()) {
+                            activeFlos.add(flo);
+                        }
+                    }
+
+                    allFlosRequest.onResponse(activeFlos);
                 } catch (Exception e) {
                     allFlosRequest.onError(e.toString());
                     e.printStackTrace();
@@ -155,18 +155,13 @@ public class Azuqua {
     }
 
     private String getISOTime() {
-
         TimeZone timezone = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
         df.setTimeZone(timezone);
-        String timestamp = df.format(new Date());
-
-        return timestamp;
+        return df.format(new Date());
     }
 
     private String signData(String data, String verb, String path, String accessSecret, String timestamp) {
-
-        String method = "signData";
 
         Mac hmac = null;
         try {
@@ -181,14 +176,19 @@ public class Azuqua {
             e.printStackTrace();
         }
         try {
+            assert hmac != null;
             hmac.init(key);
         } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
 
         String meta = verb + ":" + path + ":" + timestamp;
+
+        if (path.equalsIgnoreCase(Routes.ORG_FLOS)) {
+            meta += "{\"type\":\"mobile\"}";
+        }
+
         String dataToDigest = meta + data;
-//        Log.d(method, "data to digest " + dataToDigest);
 
         byte[] digest = new byte[0];
         try {
@@ -196,10 +196,8 @@ public class Azuqua {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        String digestString = bytesToHex(digest).toLowerCase();
-//        Log.d(method, "digested string " + digestString);
 
-        return digestString;
+        return bytesToHex(digest).toLowerCase();
     }
 
     private String bytesToHex(byte[] bytes) {
