@@ -21,13 +21,14 @@ public class Flo {
     private String updated;
     private String role_type;
     private User user;
+    private Display display;
 
     public Flo() {
         //empty constructor
     }
 
 
-    public Flo(int id, int user_id, int org_id, String alias, String version, String name, String module, boolean active, boolean published, String security_level, String client_token, String description, String created, String updated, String role_type, User user) {
+    public Flo(int id, int user_id, int org_id, String alias, String version, String name, String module, boolean active, boolean published, String security_level, String client_token, String description, String created, String updated, String role_type, User user, Display display) {
         this.id = id;
         this.user_id = user_id;
         this.org_id = org_id;
@@ -44,6 +45,7 @@ public class Flo {
         this.updated = updated;
         this.role_type = role_type;
         this.user = user;
+        this.display = display;
     }
 
     public int getId() {
@@ -172,5 +174,13 @@ public class Flo {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Display getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(Display display) {
+        this.display = display;
     }
 }

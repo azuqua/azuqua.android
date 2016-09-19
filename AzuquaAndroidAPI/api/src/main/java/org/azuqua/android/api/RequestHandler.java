@@ -3,6 +3,8 @@ package org.azuqua.android.api;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.google.gson.JsonSyntaxException;
+
 import org.azuqua.android.api.callbacks.AsyncRequest;
 
 import java.io.BufferedReader;
@@ -12,8 +14,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +77,7 @@ class RequestHandler extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        IOException ioException;
+        Exception exception;
         try {
 
             connection = Routes.getProtocol().equals("https") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
@@ -119,13 +123,13 @@ class RequestHandler extends AsyncTask<String, Void, String> {
 
             return response;
 
-        } catch (IOException e) {
-            ioException = e;
+        }catch (JsonSyntaxException | IOException e){
+            exception = e;
             e.printStackTrace();
         } finally {
             ((HttpURLConnection) connection).disconnect();
         }
-        return ioException.toString();
+        return exception.toString();
     }
 
     @Override

@@ -21,23 +21,12 @@ public class Routes {
     /**
      * FLO
      */
-    public static final String FLO_READ = "/flo/:alias/read";
+
     static final String FLO_INVOKE = "/flo/:alias/invoke";
     static final String FLO_INJECT = "/flo/:alias/inject";
-    public static final String FLO_ENABLE = "/flo/:alias/enable";
-    public static final String FLO_DISABLE = "/flo/:alias/disable";
-    public static final String FLO_EXECUTIONS_COUNT = "/flo/:alias/executions";
     static final String FLO_INPUTS = "/flo/:alias/inputs";
+    static final String FLO_OUTPUTS = "/flo/:alias/outputs";
 
-    /**
-     * STORE
-     */
-    public static final String STORE_FLOS_PUBLISHED = "/gallery/publishedflos";
-    public static final String STORE_FLOS_POPULAR = "/gallery/publishedflos/search/popular";
-    public static final String STORE_FLOS_RECENT = "/gallery/publishedflos/search/recent";
-    public static final String STORE_FLOS_SEARCH_BY_PUBLISHER = "/gallery/publishedflos/search/publisher";
-    public static final String STORE_FLOS_SEARCH_BY_TAG = "/gallery/publishedflos/search/tags";
-    public static final String STORE_FLOS_SEARCH_BY_DESCRIPTION = "/gallery/publishedflos/search";
 
 
     public Routes() {

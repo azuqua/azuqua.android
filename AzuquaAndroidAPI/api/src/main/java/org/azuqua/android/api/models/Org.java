@@ -16,11 +16,12 @@ public class Org {
     private boolean active;
     private boolean enabled;
     private String role_type;
+    private int selected;
 
     public Org() {
     }
 
-    public Org(long id, String name, String display_name, String namespace, String trail_start, String trail_end, boolean trail_used, boolean active, boolean enabled, String role_type) {
+    public Org(long id, String name, String display_name, String namespace, String trail_start, String trail_end, boolean trail_used, boolean active, boolean enabled, String role_type, int selected) {
         this.id = id;
         this.name = name;
         this.display_name = display_name;
@@ -31,6 +32,15 @@ public class Org {
         this.active = active;
         this.enabled = enabled;
         this.role_type = role_type;
+        this.selected = selected;
+    }
+
+    public int getSelected() {
+        return selected;
+    }
+
+    public void setSelected(int selected) {
+        this.selected = selected;
     }
 
     public long getId() {

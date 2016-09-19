@@ -115,6 +115,25 @@ public class Azuqua {
         requestHandler.execute();
     }
 
+    public void getFloOutputs(String alias, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+        String timestamp = getISOTime();
+        String route = Routes.FLO_OUTPUTS.replace(":alias", alias);
+        String signedData = signData("", "get", route, accessSecret, timestamp);
+        RequestHandler requestHandler = new RequestHandler("GET", route, "", signedData, accessKey, timestamp, new AsyncRequest() {
+            @Override
+            public void onResponse(String response) {
+                asyncRequest.onResponse(response);
+            }
+
+            @Override
+            public void onError(String error) {
+                asyncRequest.onError(error);
+            }
+        });
+
+        requestHandler.execute();
+    }
+
     public void invokeFlo(Boolean isMonitor, String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
 
         String timestamp = getISOTime();
