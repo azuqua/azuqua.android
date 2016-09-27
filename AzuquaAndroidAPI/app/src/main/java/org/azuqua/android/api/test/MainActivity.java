@@ -8,13 +8,16 @@ import org.azuqua.android.api.Azuqua;
 import org.azuqua.android.api.callbacks.AllFlosRequest;
 import org.azuqua.android.api.callbacks.AsyncRequest;
 import org.azuqua.android.api.callbacks.LoginRequest;
+import org.azuqua.android.api.models.AzuquaError;
 import org.azuqua.android.api.models.Flo;
 import org.azuqua.android.api.models.User;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     Azuqua azuqua = new Azuqua();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onError(String error) {
-                Log.d("Error", error);
+            public void onError(AzuquaError error) {
+                Log.d("Error", error.getErrorMessage());
             }
         });
     }
@@ -37,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         azuqua.getFlos(user.getAccess_key(), user.getAccess_secret(), new AllFlosRequest() {
             @Override
             public void onResponse(ArrayList<Flo> floList) {
-                Log.d("FLO", floList.get(0).getDisplay().getPreview().get(0).getName());
+                if(floList.isEmpty())
+                    Log.d("FLO", "No FLOs found...");
             }
 
             @Override
-            public void onError(String error) {
-
+            public void onError(AzuquaError error) {
+                Log.d("Error", error.getErrorMessage());
             }
         });
     }

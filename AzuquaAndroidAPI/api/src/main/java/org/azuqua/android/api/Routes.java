@@ -3,14 +3,14 @@ package org.azuqua.android.api;
 /**
  * Created by sasidhar on 07-Oct-15.
  */
-public class Routes {
+class Routes {
 
     /**
      * API Config
      */
-    private static String protocol = "https";
-    private static String host = "api.azuqua.com";
-    private static int port = 443;
+    static String PROTOCOL = "https";
+    static String HOST = "api.azuqua.com";
+    static int PORT = 443;
 
     /**
      * ORG
@@ -29,37 +29,37 @@ public class Routes {
 
 
 
-    public Routes() {
-        // empty constructor
-    }
-
-    public Routes(String protocol, String host, int port) {
-        Routes.protocol = protocol;
-        Routes.host = host;
-        Routes.port = port;
-    }
-
-    public static void setProtocol(String protocol) {
-        Routes.protocol = protocol;
-    }
-
-    public static void setPort(int port) {
-        Routes.port = port;
-    }
-
-    public static void setHost(String host) {
-        Routes.host = host;
-    }
-
-    static String getProtocol() {
-        return protocol;
-    }
-
-    static String getHost() {
-        return host;
-    }
-
-    static int getPort() {
-        return port;
-    }
+//    public Routes() {
+//        // empty constructor
+//    }
+//
+//    public Routes(String protocol, String host, int port) {
+//        Routes.protocol = protocol;
+//        Routes.host = host;
+//        Routes.port = port;
+//    }
+//
+//    public static void setProtocol(String protocol) {
+//        Routes.protocol = protocol;
+//    }
+//
+//    public static void setPort(int port) {
+//        Routes.port = port;
+//    }
+//
+//    public static void setHost(String host) {
+//        Routes.host = host;
+//    }
+//
+//    static String getProtocol() {
+//        return protocol;
+//    }
+//
+//    static String getHost() {
+//        return host;
+//    }
+//
+//    static int getPort() {
+//        return port;
+//    }
 }

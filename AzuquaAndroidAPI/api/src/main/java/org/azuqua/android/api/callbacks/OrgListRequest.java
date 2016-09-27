@@ -1,5 +1,6 @@
 package org.azuqua.android.api.callbacks;
 
+import org.azuqua.android.api.models.AzuquaError;
 import org.azuqua.android.api.models.Org;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
  */
 public interface OrgListRequest {
     void onResponse(List<Org> orgList);
-    void onError(String error);
+    void onError(AzuquaError error);
 }

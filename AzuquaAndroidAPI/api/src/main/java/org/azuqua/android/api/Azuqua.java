@@ -1,11 +1,13 @@
 package org.azuqua.android.api;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.Streams;
 import com.google.gson.reflect.TypeToken;
 
 import org.azuqua.android.api.callbacks.AllFlosRequest;
 import org.azuqua.android.api.callbacks.AsyncRequest;
 import org.azuqua.android.api.callbacks.LoginRequest;
+import org.azuqua.android.api.models.AzuquaError;
 import org.azuqua.android.api.models.Flo;
 import org.azuqua.android.api.models.LoginInfo;
 import org.azuqua.android.api.models.User;
@@ -33,6 +35,16 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Azuqua {
 
+
+    public Azuqua() {
+    }
+
+    public Azuqua(String protocol, String host, int port) {
+        Routes.PROTOCOL= protocol;
+        Routes.HOST = host;
+        Routes.PORT = port;
+    }
+
     private Gson gson = new Gson();
 
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -53,7 +65,7 @@ public class Azuqua {
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 orgListRequest.onError(error);
             }
         });
@@ -66,29 +78,36 @@ public class Azuqua {
         RequestHandler requestHandler = new RequestHandler("GET", Routes.ORG_FLOS, "", signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
+                ArrayList<Flo> activeFlos = new ArrayList<>();
+                activeFlos.clear();
                 try {
                     Type collectionType = new TypeToken<List<Flo>>() {
                     }.getType();
+
                     List<Flo> floList = gson.fromJson(response, collectionType);
 
-                    ArrayList<Flo> activeFlos = new ArrayList<>();
-                    activeFlos.clear();
-
-                    for (Flo flo : floList) {
-                        if (flo.isActive()) {
-                            activeFlos.add(flo);
+                    if(floList !=null && !floList.isEmpty()){
+                        for (Flo flo : floList) {
+                            if (flo.isActive()) {
+                                activeFlos.add(flo);
+                            }
                         }
                     }
 
                     allFlosRequest.onResponse(activeFlos);
-                } catch (Exception e) {
-                    allFlosRequest.onError(e.toString());
+                }catch (IndexOutOfBoundsException ee){
+                    allFlosRequest.onResponse(activeFlos);
+                }catch (Exception e) {
+                    AzuquaError error = new AzuquaError();
+                    error.setStatusCode(200);
+                    error.setErrorMessage(e.toString());
+                    allFlosRequest.onError(error);
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 allFlosRequest.onError(error);
             }
         });
@@ -107,7 +126,7 @@ public class Azuqua {
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 asyncRequest.onError(error);
             }
         });
@@ -126,7 +145,7 @@ public class Azuqua {
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 asyncRequest.onError(error);
             }
         });
@@ -139,6 +158,9 @@ public class Azuqua {
         String timestamp = getISOTime();
         String route = isMonitor ? Routes.FLO_INJECT.replace(":alias", alias) : Routes.FLO_INVOKE.replace(":alias", alias);
         String signedData = signData(data, "post", route, accessSecret, timestamp);
+
+        final AzuquaError error = new AzuquaError();
+
         RequestHandler requestHandler = new RequestHandler("POST", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
@@ -146,13 +168,17 @@ public class Azuqua {
                     JSONObject jsonObject = new JSONObject(response);
 
                     if (jsonObject.has("error")) {
-                        asyncRequest.onError(response);
+                        error.setStatusCode(200);
+                        error.setErrorMessage(response);
+                        asyncRequest.onError(error);
                     } else if (jsonObject.has("data")) {
                         String dataString = jsonObject.getString("data");
                         JSONObject dataObj = new JSONObject(dataString);
 
                         if (dataObj.has("error")) {
-                            asyncRequest.onError(dataString);
+                            error.setStatusCode(200);
+                            error.setErrorMessage(dataString);
+                            asyncRequest.onError(error);
                         } else {
                             asyncRequest.onResponse(response);
                         }
@@ -160,13 +186,15 @@ public class Azuqua {
                         asyncRequest.onResponse(response);
                     }
                 } catch (JSONException e) {
-                    asyncRequest.onError(e.toString());
+                    error.setStatusCode(200);
+                    error.setErrorMessage(e.toString());
+                    asyncRequest.onError(error);
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 asyncRequest.onError(error);
             }
         });

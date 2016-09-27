@@ -1,5 +1,6 @@
 package org.azuqua.android.api.callbacks;
 
+import org.azuqua.android.api.models.AzuquaError;
 import org.azuqua.android.api.models.Flo;
 
 /**
@@ -7,5 +8,5 @@ import org.azuqua.android.api.models.Flo;
  */
 public interface FloDataRequest {
     void onResponse(Flo floData);
-    void onError(String error);
+    void onError(AzuquaError error);
 }
