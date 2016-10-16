@@ -1,7 +1,6 @@
 package org.azuqua.android.api;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -23,8 +22,6 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
-import java.util.List;
-import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -136,25 +133,23 @@ class RequestHandler extends AsyncTask<String, Void, String> {
 ////                Log.d("logConnection", header.getKey() + "=" + header.getValue());
 //            }
             return response;
-        }catch (SocketTimeoutException e){
+        } catch (SocketTimeoutException e) {
             azuquaError.setStatusCode(statusCode);
             azuquaError.setErrorMessage("Request timed out error.");
             error = new Gson().toJson(azuquaError);
-        }catch (UnknownHostException e){
+        } catch (UnknownHostException e) {
             azuquaError.setStatusCode(statusCode);
             azuquaError.setErrorMessage("Invalid host address.");
             error = new Gson().toJson(azuquaError);
-        }
-        catch (JsonSyntaxException e){
+        } catch (JsonSyntaxException e) {
             azuquaError.setStatusCode(statusCode);
             azuquaError.setErrorMessage("Invalid path or not a valid request.");
             error = new Gson().toJson(azuquaError);
-        }catch (IOException e){
+        } catch (IOException e) {
             azuquaError.setStatusCode(statusCode);
             azuquaError.setErrorMessage(e.toString());
             error = new Gson().toJson(azuquaError);
-        }
-        finally {
+        } finally {
             ((HttpURLConnection) connection).disconnect();
         }
         return error;

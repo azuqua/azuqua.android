@@ -16,7 +16,7 @@ class Routes {
      * ORG
      */
     static final String ORG_LOGIN = "/login";
-    static final String ORG_FLOS = "/org/flos?type=mobile";
+    static final String ORG_FLOS = "/org/flos?type=webhook";
 
     /**
      * FLO

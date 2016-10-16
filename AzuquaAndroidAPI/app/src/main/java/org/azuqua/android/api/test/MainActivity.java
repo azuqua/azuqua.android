@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Azuqua azuqua = new Azuqua();
+    Azuqua azuqua = new Azuqua("https","alphaapi.azuqua.com",443);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,7 +1,6 @@
 package org.azuqua.android.api;
 
 import com.google.gson.Gson;
-import com.google.gson.internal.Streams;
 import com.google.gson.reflect.TypeToken;
 
 import org.azuqua.android.api.callbacks.AllFlosRequest;
@@ -153,10 +152,10 @@ public class Azuqua {
         requestHandler.execute();
     }
 
-    public void invokeFlo(Boolean isMonitor, String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+    public void invokeFlo(String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
 
         String timestamp = getISOTime();
-        String route = isMonitor ? Routes.FLO_INJECT.replace(":alias", alias) : Routes.FLO_INVOKE.replace(":alias", alias);
+        String route = Routes.FLO_INVOKE.replace(":alias", alias);
         String signedData = signData(data, "post", route, accessSecret, timestamp);
 
         final AzuquaError error = new AzuquaError();
@@ -232,7 +231,7 @@ public class Azuqua {
         String meta = verb + ":" + path + ":" + timestamp;
 
         if (path.equalsIgnoreCase(Routes.ORG_FLOS)) {
-            meta += "{\"type\":\"mobile\"}";
+            meta += "{\"type\":\"webhook\"}";
         }
 
         String dataToDigest = meta + data;

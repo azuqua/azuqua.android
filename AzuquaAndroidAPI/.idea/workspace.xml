@@ -5,42 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd6a8913-3934-4e11-9a83-e60423664404" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/sasidhar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/AzuquaError.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/SASi.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/AzuquaException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/AzuquaException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/test/debug/org/azuqua/android/api/ExampleUnitTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$1$1.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$1.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$2$1.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$2.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$3.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$4.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Azuqua.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/AzuquaException.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/AzuquaException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/BuildConfig.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/R$attr.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/R$string.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/R.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/RequestHandler.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/RequestHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Routes.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/Routes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/AllFlosRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/AllFlosRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/AsyncRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/AsyncRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/FloDataRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/FloDataRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/LoginRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/LoginRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/OrgListRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/callbacks/OrgListRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/Flo.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/Flo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/LoginInfo.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/LoginInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/Org.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/Org.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/User.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/debug/org/azuqua/android/api/models/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua$1$1.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua$1.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua$2$1.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua$2$1.class" />
@@ -50,111 +15,25 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Azuqua.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/RequestHandler.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/RequestHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Routes.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/Routes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/AllFlosRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/AllFlosRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/AsyncRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/AsyncRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/FloDataRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/FloDataRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/LoginRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/LoginRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/OrgListRequest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/release/org/azuqua/android/api/callbacks/OrgListRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/classes/test/debug/org/azuqua/android/api/ExampleUnitTest.class" afterPath="$PROJECT_DIR$/api/build/intermediates/classes/test/debug/org/azuqua/android/api/ExampleUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/compileDebugAidl/dependency.store" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/compileDebugAidl/dependency.store" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/compileReleaseAidl/dependency.store" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/compileReleaseAidl/dependency.store" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/api/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/outputs/aar/api-debug.aar" afterPath="$PROJECT_DIR$/api/build/outputs/aar/api-debug.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/outputs/aar/api-release.aar" afterPath="$PROJECT_DIR$/api/build/outputs/aar/api-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_check_to_on_mtrl_000.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AzuquaAndroidAPI.iml" afterPath="$PROJECT_DIR$/AzuquaAndroidAPI.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/.gitignore" afterPath="$PROJECT_DIR$/api/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/api.iml" afterPath="$PROJECT_DIR$/api/api.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build.gradle" afterPath="$PROJECT_DIR$/api/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/generated/source/buildConfig/androidTest/debug/org/azuqua/android/api/test/BuildConfig.java" afterPath="$PROJECT_DIR$/api/build/generated/source/buildConfig/androidTest/debug/org/azuqua/android/api/test/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/generated/source/buildConfig/debug/org/azuqua/android/api/BuildConfig.java" afterPath="$PROJECT_DIR$/api/build/generated/source/buildConfig/debug/org/azuqua/android/api/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/generated/source/buildConfig/release/org/azuqua/android/api/BuildConfig.java" afterPath="$PROJECT_DIR$/api/build/generated/source/buildConfig/release/org/azuqua/android/api/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/generated/source/r/androidTest/debug/org/azuqua/android/api/R.java" afterPath="$PROJECT_DIR$/api/build/generated/source/r/androidTest/debug/org/azuqua/android/api/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/generated/source/r/androidTest/debug/org/azuqua/android/api/test/R.java" afterPath="$PROJECT_DIR$/api/build/generated/source/r/androidTest/debug/org/azuqua/android/api/test/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/generated/source/r/debug/org/azuqua/android/api/R.java" afterPath="$PROJECT_DIR$/api/build/generated/source/r/debug/org/azuqua/android/api/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/blame/res/androidTest/debug/multi/values.json" afterPath="$PROJECT_DIR$/api/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/R.txt" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/debug/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/release/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/release/R.txt" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/release/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/bundles/release/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/packageDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/incremental/packageReleaseResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/api/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/build/intermediates/symbols/androidTest/debug/R.txt" afterPath="$PROJECT_DIR$/api/build/intermediates/symbols/androidTest/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/proguard-rules.pro" afterPath="$PROJECT_DIR$/api/proguard-rules.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/androidTest/java/org/azuqua/android/api/ApplicationTest.java" afterPath="$PROJECT_DIR$/api/src/androidTest/java/org/azuqua/android/api/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/api/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AllFlosRequest.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AllFlosRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AsyncRequest.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AsyncRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/FloDataRequest.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/FloDataRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/LoginRequest.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/LoginRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/OrgListRequest.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/OrgListRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Display.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Display.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Flo.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Flo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/LoginInfo.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/LoginInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Org.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Org.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Preview.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/Preview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/User.java" afterPath="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/api/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/test/java/org/azuqua/android/api/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/api/src/test/java/org/azuqua/android/api/ExampleUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/.gitignore" afterPath="$PROJECT_DIR$/app/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/anim.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/anim.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxxhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/org/azuqua/android/api/ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/org/azuqua/android/api/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/org/azuqua/android/api/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/org/azuqua/android/api/ExampleUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
     </list>
     <ignored path="AzuquaAndroidAPI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -186,15 +65,35 @@
     <favorites_list name="AzuquaAndroidAPI" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AzuquaError.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/AzuquaError.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RequestHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding>
                 <element signature="docComment;class#RequestHandler#0" expanded="false" />
-                <element signature="e#5055#5157#0" expanded="false" />
+                <element signature="e#4985#5087#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -203,16 +102,16 @@
       <file leaf-file-name="Azuqua.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="-285">
+              <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
               <folding>
-                <element signature="docComment;class#Azuqua#0" expanded="false" />
-                <element signature="method#login#0;class#Azuqua#0" expanded="false" />
+                <element signature="e#2109#2110#0" expanded="true" />
+                <element signature="e#2170#2171#0" expanded="true" />
+                <element signature="e#3851#3852#0" expanded="true" />
+                <element signature="e#3912#3913#0" expanded="true" />
                 <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
                 <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
-                <element signature="method#invokeFlo#0;class#Azuqua#0" expanded="false" />
                 <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
-                <element signature="method#signData#0;class#Azuqua#0" expanded="false" />
                 <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
               </folding>
             </state>
@@ -2734,11 +2633,11 @@
         <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/FloDataRequest.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/LoginRequest.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/OrgListRequest.java" />
+        <option value="$PROJECT_DIR$/api/build.gradle" />
         <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java" />
-        <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java" />
-        <option value="$PROJECT_DIR$/api/build.gradle" />
+        <option value="$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java" />
       </list>
     </option>
   </component>
@@ -2771,9 +2670,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2781,9 +2679,15 @@
               <option name="myItemId" value="AzuquaAndroidAPI" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="AzuquaAndroidAPI" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2791,17 +2695,66 @@
               <option name="myItemId" value="AzuquaAndroidAPI" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AzuquaAndroidAPI" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AzuquaAndroidAPI" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="device.picker.selection" value="192.168.1.15:5555" />
     <property name="FullScreen" value="true" />
-    <property name="device.picker.selection" value="Nexus_5X_API_24" />
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -3097,6 +3050,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fd6a8913-3934-4e11-9a83-e60423664404" name="Default" comment="" />
@@ -3112,37 +3068,45 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995037" sideWeight="0.50858366" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995037" sideWeight="0.50858366" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995037" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -3154,195 +3118,80 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java</url>
           <line>33</line>
           <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java</url>
-          <line>154</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java</url>
-          <line>149</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java</url>
-          <line>144</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java</url>
-          <line>141</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java</url>
-          <line>123</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java</url>
-          <line>100</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java</url>
           <line>43</line>
           <properties />
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java</url>
-          <line>42</line>
+          <line>48</line>
           <properties />
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java</url>
+          <line>156</line>
+          <properties />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/AzuquaError.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AsyncRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/FloDataRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AllFlosRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/LoginRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/OrgListRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/AzuquaException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/org/azuqua/android/api/ExampleUnitTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Azuqua#0" expanded="false" />
-            <element signature="method#login#0;class#Azuqua#0" expanded="false" />
-            <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
-            <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
-            <element signature="method#invokeFlo#0;class#Azuqua#0" expanded="false" />
-            <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
-            <element signature="method#signData#0;class#Azuqua#0" expanded="false" />
-            <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        <state relative-caret-position="405">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2130">
+          <caret line="232" column="49" selection-start-line="232" selection-start-column="41" selection-end-line="232" selection-end-column="49" />
           <folding>
-            <element signature="e#908#909#0" expanded="true" />
-            <element signature="e#953#954#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1586#1587#0" expanded="true" />
+            <element signature="e#2109#2110#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
+            <element signature="e#3912#3913#0" expanded="true" />
+            <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3353,7 +3202,196 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#RequestHandler#0" expanded="false" />
-            <element signature="e#5055#5157#0" expanded="false" />
+            <element signature="e#4985#5087#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="234" column="45" selection-start-line="234" selection-start-column="45" selection-end-line="234" selection-end-column="45" />
+          <folding>
+            <element signature="e#2109#2110#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
+            <element signature="e#3912#3913#0" expanded="true" />
+            <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#RequestHandler#0" expanded="false" />
+            <element signature="e#4985#5087#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#2109#2110#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
+            <element signature="e#3912#3913#0" expanded="true" />
+            <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#RequestHandler#0" expanded="false" />
+            <element signature="e#4985#5087#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#2109#2110#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
+            <element signature="e#3912#3913#0" expanded="true" />
+            <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AsyncRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/FloDataRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/AllFlosRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/LoginRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/callbacks/OrgListRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/AzuquaException.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/org/azuqua/android/api/ExampleUnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Routes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/Azuqua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285">
+          <caret line="43" column="27" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="27" />
+          <folding>
+            <element signature="e#2109#2110#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
+            <element signature="e#3912#3913#0" expanded="true" />
+            <element signature="method#getFloInputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getFloOutputs#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#getISOTime#0;class#Azuqua#0" expanded="false" />
+            <element signature="method#bytesToHex#0;class#Azuqua#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/models/AzuquaError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/azuqua/android/api/test/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/azuqua/android/api/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="docComment;class#RequestHandler#0" expanded="false" />
+            <element signature="e#4985#5087#0" expanded="false" />
           </folding>
         </state>
       </provider>
