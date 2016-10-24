@@ -3,8 +3,8 @@
     package="org.azuqua.android.api.test" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="23" />
+        android:minSdkVersion="9"
+        android:targetSdkVersion="25" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -13,10 +13,7 @@
         android:label="Tests for org.azuqua.android.api.test"
         android:targetPackage="org.azuqua.android.api.test" />
 
-    <application
-        android:allowBackup="true"
-        android:label="@string/app_name"
-        android:supportsRtl="true" >
+    <application>
         <uses-library android:name="android.test.runner" />
     </application>
 

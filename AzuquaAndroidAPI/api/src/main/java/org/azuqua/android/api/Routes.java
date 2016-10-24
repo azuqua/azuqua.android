@@ -45,9 +45,9 @@ public class Routes {
     }
 
     public Routes(String protocol, String host, int port) {
-        this.protocol = protocol;
-        this.host = host;
-        this.port = port;
+        Routes.protocol = protocol;
+        Routes.host = host;
+        Routes.port = port;
     }
 
     public static void setProtocol(String protocol) {
