@@ -28,6 +28,8 @@ import java.util.TimeZone;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import static android.R.attr.data;
+
 /**
  * Created by sasidhar on 07-Oct-15.
  */
@@ -39,7 +41,7 @@ public class Azuqua {
     }
 
     public Azuqua(String protocol, String host, int port) {
-        Routes.PROTOCOL= protocol;
+        Routes.PROTOCOL = protocol;
         Routes.HOST = host;
         Routes.PORT = port;
     }
@@ -71,10 +73,18 @@ public class Azuqua {
         requestHandler.execute();
     }
 
-    public void getFlos(String accessKey, String accessSecret, final AllFlosRequest allFlosRequest) {
+    public void getFlos(long org_id, String accessKey, String accessSecret, final AllFlosRequest allFlosRequest) {
+
         String timestamp = getISOTime();
-        String signedData = signData("", "get", Routes.ORG_FLOS, accessSecret, timestamp);
-        RequestHandler requestHandler = new RequestHandler("GET", Routes.ORG_FLOS, "", signedData, accessKey, timestamp, new AsyncRequest() {
+
+        Routes.ORG_FLOS = Routes.ORG_FLOS.replace(":org_id", "" + org_id);
+
+        String data = "{\"org_id\":\"" + org_id + "\",\"channel_key\":\"azuquamobile\"}";
+
+        String signedData = signData(data, "get", Routes.ORG_FLOS, accessSecret, timestamp);
+
+        RequestHandler requestHandler = new RequestHandler("GET", Routes.ORG_FLOS, "",
+                signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
                 ArrayList<Flo> activeFlos = new ArrayList<>();
@@ -85,7 +95,7 @@ public class Azuqua {
 
                     List<Flo> floList = gson.fromJson(response, collectionType);
 
-                    if(floList !=null && !floList.isEmpty()){
+                    if (floList != null && !floList.isEmpty()) {
                         for (Flo flo : floList) {
                             if (flo.isActive()) {
                                 activeFlos.add(flo);
@@ -94,9 +104,9 @@ public class Azuqua {
                     }
 
                     allFlosRequest.onResponse(activeFlos);
-                }catch (IndexOutOfBoundsException ee){
+                } catch (IndexOutOfBoundsException ee) {
                     allFlosRequest.onResponse(activeFlos);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     AzuquaError error = new AzuquaError();
                     error.setStatusCode(200);
                     error.setErrorMessage(e.toString());
@@ -230,9 +240,9 @@ public class Azuqua {
 
         String meta = verb + ":" + path + ":" + timestamp;
 
-        if (path.equalsIgnoreCase(Routes.ORG_FLOS)) {
-            meta += "{\"type\":\"webhook\"}";
-        }
+//        if (path.equalsIgnoreCase(Routes.ORG_FLOS)) {
+//            meta += "{" + data + "}";
+//        }
 
         String dataToDigest = meta + data;
 
