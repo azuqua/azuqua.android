@@ -77,13 +77,13 @@ public class Azuqua {
 
         String timestamp = getISOTime();
 
-        Routes.ORG_FLOS = Routes.ORG_FLOS.replace(":org_id", "" + org_id);
+        String ORG_FLOS = Routes.ORG_FLOS.replace(":org_id", "" + org_id);
 
         String data = "{\"org_id\":\"" + org_id + "\",\"channel_key\":\"azuquamobile\"}";
 
-        String signedData = signData(data, "get", Routes.ORG_FLOS, accessSecret, timestamp);
+        String signedData = signData(data, "get", ORG_FLOS, accessSecret, timestamp);
 
-        RequestHandler requestHandler = new RequestHandler("GET", Routes.ORG_FLOS, "",
+        RequestHandler requestHandler = new RequestHandler("GET", ORG_FLOS, "",
                 signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
@@ -239,10 +239,6 @@ public class Azuqua {
         }
 
         String meta = verb + ":" + path + ":" + timestamp;
-
-//        if (path.equalsIgnoreCase(Routes.ORG_FLOS)) {
-//            meta += "{" + data + "}";
-//        }
 
         String dataToDigest = meta + data;
 

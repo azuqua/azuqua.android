@@ -28,7 +28,7 @@ MERGED from [com.android.support:support-core-ui:25.0.0] /Users/sasidhar/Documen
 MERGED from [com.android.support:support-fragment:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/AndroidManifest.xml:22:5-20
-MERGED from [org.azuqua.android.api:api:0.0.25] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/org.azuqua.android.api/api/0.0.25/AndroidManifest.xml:11:5-20
+MERGED from [org.azuqua.android.api:api:0.0.27] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/org.azuqua.android.api/api/0.0.27/AndroidManifest.xml:11:5-20
 	android:label
 		ADDED from /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/src/main/AndroidManifest.xml:10:9-41
 	android:supportsRtl
@@ -64,7 +64,7 @@ MERGED from [com.android.support:support-core-ui:25.0.0] /Users/sasidhar/Documen
 MERGED from [com.android.support:support-fragment:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.0/AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-vector-drawable:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.0/AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:animated-vector-drawable:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.0/AndroidManifest.xml:20:5-44
-MERGED from [org.azuqua.android.api:api:0.0.25] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/org.azuqua.android.api/api/0.0.25/AndroidManifest.xml:7:5-9:41
+MERGED from [org.azuqua.android.api:api:0.0.27] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/org.azuqua.android.api/api/0.0.27/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.0.0] /Users/sasidhar/Documents/GitHub/azuqua.android/AzuquaAndroidAPI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

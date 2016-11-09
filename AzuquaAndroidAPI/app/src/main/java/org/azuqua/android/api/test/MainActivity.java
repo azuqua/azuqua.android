@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
                     Map<String, Map> params = new HashMap<String, Map>();
                     Map<String, String> data = new HashMap<String, String>();
-                    data.put("Phone Number", "9959582678");
-                    data.put("Message", "Hello World !");
+                    data.put("Title", "Title goes here");
+                    data.put("Url", "Hello World !");
                     params.put("QR Code", data);
 
                     azuqua.invokeFlo(flo.getAlias(), new Gson().toJson(params),
