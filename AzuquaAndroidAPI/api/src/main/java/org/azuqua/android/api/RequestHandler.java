@@ -1,6 +1,7 @@
 package org.azuqua.android.api;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -94,6 +95,7 @@ class RequestHandler extends AsyncTask<String, Void, String> {
             ((HttpURLConnection) connection).setRequestMethod(this.requestMethod.toUpperCase());
             connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
             connection.setRequestProperty("Content-Length", "" + Integer.toString(this.payLoadData.getBytes().length));
+            Log.d("Data length", "" + Integer.toString(this.payLoadData.getBytes().length));
             connection.setRequestProperty("host", Routes.HOST);
             connection.setRequestProperty("x-api-timestamp", this.time_stamp);
 
@@ -107,7 +109,7 @@ class RequestHandler extends AsyncTask<String, Void, String> {
             if (this.requestMethod.equalsIgnoreCase("post")) {
                 DataOutputStream dataOutputStream = new DataOutputStream(connection.getOutputStream());
                 dataOutputStream.writeBytes(this.payLoadData);
-//                Log.d("Request Handler", this.payLoadData);
+                Log.d("Request Handler", this.payLoadData);
                 dataOutputStream.flush();
                 dataOutputStream.close();
             }
@@ -123,15 +125,22 @@ class RequestHandler extends AsyncTask<String, Void, String> {
                 if (jsonElement.isJsonObject()) {
                     JsonObject jsonObject = jsonElement.getAsJsonObject();
                     JsonElement str = jsonObject.get("error");
-                    azuquaError.setErrorMessage(str.getAsString());
+                    String errorMessage = null;
+                    if (str != null) {
+                        if (str.isJsonObject()) {
+                            errorMessage = str.getAsJsonObject().toString();
+                        } else {
+                            errorMessage = str.getAsString();
+                        }
+                    } else {
+                        errorMessage = errorResponse;
+                    }
+                    azuquaError.setErrorMessage(errorMessage);
                 } else {
                     azuquaError.setErrorMessage(errorResponse);
                 }
                 response = new Gson().toJson(azuquaError);
             }
-//            for (Map.Entry<String, List<String>> header : connection.getHeaderFields().entrySet()) {
-////                Log.d("logConnection", header.getKey() + "=" + header.getValue());
-//            }
             return response;
         } catch (SocketTimeoutException e) {
             azuquaError.setStatusCode(statusCode);
