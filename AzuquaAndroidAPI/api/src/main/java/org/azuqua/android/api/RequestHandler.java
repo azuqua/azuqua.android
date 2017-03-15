@@ -3,7 +3,14 @@ package org.azuqua.android.api;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+
 import org.azuqua.android.api.callbacks.AsyncRequest;
+import org.azuqua.android.api.models.AzuquaError;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -12,10 +19,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
-import java.util.Map;
+import java.net.UnknownHostException;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -23,7 +30,7 @@ import javax.net.ssl.HttpsURLConnection;
  * Created by sasidhar on 07-Oct-15.
  */
 
-public class RequestHandler extends AsyncTask<String, Void, String> {
+class RequestHandler extends AsyncTask<String, Void, String> {
 
     private String requestMethod = null;
     private String requestPath = null;
@@ -36,14 +43,13 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
     private int statusCode;
 
     private URL url;
-    private DataOutputStream dataOutputStream;
     private URLConnection connection;
 
     public RequestHandler() {
         // empty constructor
     }
 
-    public RequestHandler(String requestMethod, String requestPath, String payLoadData, String time_stamp, AsyncRequest asyncResponse) {
+    RequestHandler(String requestMethod, String requestPath, String payLoadData, String time_stamp, AsyncRequest asyncResponse) {
         this.requestMethod = requestMethod;
         this.requestPath = requestPath;
         this.payLoadData = payLoadData;
@@ -51,7 +57,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
         this.asyncResponse = asyncResponse;
     }
 
-    public RequestHandler(String requestMethod, String requestPath, String payLoadData, String signedData, String accessKey, String time_stamp, AsyncRequest asyncResponse) {
+    RequestHandler(String requestMethod, String requestPath, String payLoadData, String signedData, String accessKey, String time_stamp, AsyncRequest asyncResponse) {
         this.requestMethod = requestMethod;
         this.requestPath = requestPath;
         this.payLoadData = payLoadData;
@@ -65,7 +71,7 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
         try {
-            url = new URL(Routes.getProtocol(), Routes.getHost(), Routes.getPort(), this.requestPath);
+            url = new URL(Routes.PROTOCOL, Routes.HOST, Routes.PORT, this.requestPath);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -73,13 +79,14 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        IOException ioException;
+        String error = null;
+        AzuquaError azuquaError = new AzuquaError();
         try {
-
-            connection = Routes.getProtocol().equals("https") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
-
+            connection = Routes.PROTOCOL.equals("https") ? (HttpsURLConnection)
+                    url.openConnection() : (HttpURLConnection) url.openConnection();
             connection.setUseCaches(false);
             connection.setDoInput(true);
+
             if (this.requestMethod.equalsIgnoreCase("post"))
                 connection.setDoOutput(true);
             else
@@ -88,7 +95,8 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
             ((HttpURLConnection) connection).setRequestMethod(this.requestMethod.toUpperCase());
             connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
             connection.setRequestProperty("Content-Length", "" + Integer.toString(this.payLoadData.getBytes().length));
-            connection.setRequestProperty("host", Routes.getHost());
+            Log.d("Data length", "" + Integer.toString(this.payLoadData.getBytes().length));
+            connection.setRequestProperty("host", Routes.HOST);
             connection.setRequestProperty("x-api-timestamp", this.time_stamp);
 
             if (signedData != null) {
@@ -99,9 +107,9 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
             connection.connect();
 
             if (this.requestMethod.equalsIgnoreCase("post")) {
-                dataOutputStream = new DataOutputStream(connection.getOutputStream());
+                DataOutputStream dataOutputStream = new DataOutputStream(connection.getOutputStream());
                 dataOutputStream.writeBytes(this.payLoadData);
-//                Log.d("Request Handler", this.payLoadData);
+                Log.d("Request Handler", this.payLoadData);
                 dataOutputStream.flush();
                 dataOutputStream.close();
             }
@@ -110,22 +118,50 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
             String response = "";
             if (statusCode == HttpURLConnection.HTTP_OK)
                 response = parseResponse(connection.getInputStream());
-            else
-                response = parseResponse(((HttpURLConnection) connection).getErrorStream());
-
-            for (Map.Entry<String, List<String>> header : connection.getHeaderFields().entrySet()) {
-//                Log.d("logConnection", header.getKey() + "=" + header.getValue());
+            else {
+                azuquaError.setStatusCode(statusCode);
+                String errorResponse = parseResponse(((HttpURLConnection) connection).getErrorStream());
+                JsonElement jsonElement = new JsonParser().parse(errorResponse);
+                if (jsonElement.isJsonObject()) {
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+                    JsonElement str = jsonObject.get("error");
+                    String errorMessage = null;
+                    if (str != null) {
+                        if (str.isJsonObject()) {
+                            errorMessage = str.getAsJsonObject().toString();
+                        } else {
+                            errorMessage = str.getAsString();
+                        }
+                    } else {
+                        errorMessage = errorResponse;
+                    }
+                    azuquaError.setErrorMessage(errorMessage);
+                } else {
+                    azuquaError.setErrorMessage(errorResponse);
+                }
+                response = new Gson().toJson(azuquaError);
             }
-
             return response;
-
+        } catch (SocketTimeoutException e) {
+            azuquaError.setStatusCode(statusCode);
+            azuquaError.setErrorMessage("Request timed out error.");
+            error = new Gson().toJson(azuquaError);
+        } catch (UnknownHostException e) {
+            azuquaError.setStatusCode(statusCode);
+            azuquaError.setErrorMessage("Invalid host address.");
+            error = new Gson().toJson(azuquaError);
+        } catch (JsonSyntaxException e) {
+            azuquaError.setStatusCode(statusCode);
+            azuquaError.setErrorMessage("Invalid path or not a valid request.");
+            error = new Gson().toJson(azuquaError);
         } catch (IOException e) {
-            ioException = e;
-            e.printStackTrace();
+            azuquaError.setStatusCode(statusCode);
+            azuquaError.setErrorMessage(e.toString());
+            error = new Gson().toJson(azuquaError);
         } finally {
             ((HttpURLConnection) connection).disconnect();
         }
-        return ioException.toString();
+        return error;
     }
 
     @Override
@@ -134,12 +170,13 @@ public class RequestHandler extends AsyncTask<String, Void, String> {
         if (statusCode == HttpURLConnection.HTTP_OK) {
             this.asyncResponse.onResponse(responseString);
         } else {
-            this.asyncResponse.onError(responseString);
+            AzuquaError azuquaError = new Gson().fromJson(responseString, AzuquaError.class);
+            this.asyncResponse.onError(azuquaError);
         }
     }
 
     private String parseResponse(InputStream inputStream) {
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         BufferedReader rd = new BufferedReader(new InputStreamReader(inputStream));
         String line;
         try {

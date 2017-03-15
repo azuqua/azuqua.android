@@ -1,13 +1,12 @@
 package org.azuqua.android.api;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.azuqua.android.api.callbacks.AllFlosRequest;
 import org.azuqua.android.api.callbacks.AsyncRequest;
 import org.azuqua.android.api.callbacks.LoginRequest;
+import org.azuqua.android.api.models.AzuquaError;
 import org.azuqua.android.api.models.Flo;
 import org.azuqua.android.api.models.LoginInfo;
 import org.azuqua.android.api.models.User;
@@ -23,16 +22,29 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import static android.R.attr.data;
 
 /**
  * Created by sasidhar on 07-Oct-15.
  */
 
 public class Azuqua {
+
+
+    public Azuqua() {
+    }
+
+    public Azuqua(String protocol, String host, int port) {
+        Routes.PROTOCOL = protocol;
+        Routes.HOST = host;
+        Routes.PORT = port;
+    }
 
     private Gson gson = new Gson();
 
@@ -54,41 +66,57 @@ public class Azuqua {
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 orgListRequest.onError(error);
             }
         });
         requestHandler.execute();
     }
 
-    public void getFlos(String accessKey, String accessSecret, final AllFlosRequest allFlosRequest) {
+    public void getFlos(long org_id, String accessKey, String accessSecret, final AllFlosRequest allFlosRequest) {
+
         String timestamp = getISOTime();
-        String signedData = signData("", "get", Routes.ORG_FLOS, accessSecret, timestamp);
-        RequestHandler requestHandler = new RequestHandler("GET", Routes.ORG_FLOS, "", signedData, accessKey, timestamp, new AsyncRequest() {
+
+        String ORG_FLOS = Routes.ORG_FLOS.replace(":org_id", "" + org_id);
+
+        String data = "{\"org_id\":\"" + org_id + "\",\"channel_key\":\"azuquamobile\"}";
+
+        String signedData = signData(data, "get", ORG_FLOS, accessSecret, timestamp);
+
+        RequestHandler requestHandler = new RequestHandler("GET", ORG_FLOS, "",
+                signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
+                ArrayList<Flo> activeFlos = new ArrayList<>();
+                activeFlos.clear();
                 try {
                     Type collectionType = new TypeToken<List<Flo>>() {
                     }.getType();
+
                     List<Flo> floList = gson.fromJson(response, collectionType);
 
-                    // Filter Azuqua Mobile Channel's FLO and Active
-                    ArrayList<Flo> httpFloList = new ArrayList<>(Collections2.filter(floList, new Predicate<Flo>() {
-                        @Override
-                        public boolean apply(Flo flo) {
-                            return flo.getModule() != null && flo.getModule().equals("azuquamobile") && flo.isActive();
+                    if (floList != null && !floList.isEmpty()) {
+                        for (Flo flo : floList) {
+                            if (flo.isActive()) {
+                                activeFlos.add(flo);
+                            }
                         }
-                    }));
+                    }
 
-                    allFlosRequest.onResponse(httpFloList);
+                    allFlosRequest.onResponse(activeFlos);
+                } catch (IndexOutOfBoundsException ee) {
+                    allFlosRequest.onResponse(activeFlos);
                 } catch (Exception e) {
-                    allFlosRequest.onError(e.toString());
+                    AzuquaError error = new AzuquaError();
+                    error.setStatusCode(200);
+                    error.setErrorMessage(e.toString());
+                    allFlosRequest.onError(error);
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 allFlosRequest.onError(error);
             }
         });
@@ -107,7 +135,7 @@ public class Azuqua {
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 asyncRequest.onError(error);
             }
         });
@@ -115,11 +143,33 @@ public class Azuqua {
         requestHandler.execute();
     }
 
-    public void invokeFlo(Boolean isMonitor, String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+    public void getFloOutputs(String alias, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
+        String timestamp = getISOTime();
+        String route = Routes.FLO_OUTPUTS.replace(":alias", alias);
+        String signedData = signData("", "get", route, accessSecret, timestamp);
+        RequestHandler requestHandler = new RequestHandler("GET", route, "", signedData, accessKey, timestamp, new AsyncRequest() {
+            @Override
+            public void onResponse(String response) {
+                asyncRequest.onResponse(response);
+            }
+
+            @Override
+            public void onError(AzuquaError error) {
+                asyncRequest.onError(error);
+            }
+        });
+
+        requestHandler.execute();
+    }
+
+    public void invokeFlo(String alias, String data, String accessKey, String accessSecret, final AsyncRequest asyncRequest) {
 
         String timestamp = getISOTime();
-        String route = isMonitor ? Routes.FLO_INJECT.replace(":alias", alias) : Routes.FLO_INVOKE.replace(":alias", alias);
+        String route = Routes.FLO_INVOKE.replace(":alias", alias);
         String signedData = signData(data, "post", route, accessSecret, timestamp);
+
+        final AzuquaError error = new AzuquaError();
+
         RequestHandler requestHandler = new RequestHandler("POST", route, data, signedData, accessKey, timestamp, new AsyncRequest() {
             @Override
             public void onResponse(String response) {
@@ -127,13 +177,17 @@ public class Azuqua {
                     JSONObject jsonObject = new JSONObject(response);
 
                     if (jsonObject.has("error")) {
-                        asyncRequest.onError(response);
+                        error.setStatusCode(200);
+                        error.setErrorMessage(response);
+                        asyncRequest.onError(error);
                     } else if (jsonObject.has("data")) {
                         String dataString = jsonObject.getString("data");
                         JSONObject dataObj = new JSONObject(dataString);
 
                         if (dataObj.has("error")) {
-                            asyncRequest.onError(dataString);
+                            error.setStatusCode(200);
+                            error.setErrorMessage(dataString);
+                            asyncRequest.onError(error);
                         } else {
                             asyncRequest.onResponse(response);
                         }
@@ -141,13 +195,15 @@ public class Azuqua {
                         asyncRequest.onResponse(response);
                     }
                 } catch (JSONException e) {
-                    asyncRequest.onError(e.toString());
+                    error.setStatusCode(200);
+                    error.setErrorMessage(e.toString());
+                    asyncRequest.onError(error);
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onError(String error) {
+            public void onError(AzuquaError error) {
                 asyncRequest.onError(error);
             }
         });
@@ -155,18 +211,13 @@ public class Azuqua {
     }
 
     private String getISOTime() {
-
         TimeZone timezone = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
         df.setTimeZone(timezone);
-        String timestamp = df.format(new Date());
-
-        return timestamp;
+        return df.format(new Date());
     }
 
     private String signData(String data, String verb, String path, String accessSecret, String timestamp) {
-
-        String method = "signData";
 
         Mac hmac = null;
         try {
@@ -181,14 +232,15 @@ public class Azuqua {
             e.printStackTrace();
         }
         try {
+            assert hmac != null;
             hmac.init(key);
         } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
 
         String meta = verb + ":" + path + ":" + timestamp;
+
         String dataToDigest = meta + data;
-//        Log.d(method, "data to digest " + dataToDigest);
 
         byte[] digest = new byte[0];
         try {
@@ -196,10 +248,8 @@ public class Azuqua {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        String digestString = bytesToHex(digest).toLowerCase();
-//        Log.d(method, "digested string " + digestString);
 
-        return digestString;
+        return bytesToHex(digest).toLowerCase();
     }
 
     private String bytesToHex(byte[] bytes) {

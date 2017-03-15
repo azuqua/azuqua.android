@@ -1,5 +1,6 @@
 package org.azuqua.android.api.callbacks;
 
+import org.azuqua.android.api.models.AzuquaError;
 import org.azuqua.android.api.models.Flo;
 
 import java.util.ArrayList;
@@ -9,5 +10,5 @@ import java.util.ArrayList;
  */
 public interface AllFlosRequest {
     void onResponse(ArrayList<Flo> floList);
-    void onError(String error);
+    void onError(AzuquaError error);
 }
